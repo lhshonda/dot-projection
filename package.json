@@ -16,14 +16,21 @@
     "watch": "concurrently \"eslint 'src/**/*.js' --watch --fix\" \"stylelint '**/*.css' --watch --fix\""
   },
   "devDependencies": {
-    "@eslint/js": "^9.30.1",
-    "concurrently": "^9.2.0",
-    "eslint": "^9.30.1",
-    "eslint-config-prettier": "^10.1.5",
+    "@eslint/js": "^9.39.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.6.2",
-    "stylelint": "^16.21.1",
-    "stylelint-config-standard": "^38.0.0",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1",
     "stylelint-order": "^7.0.0",
-    "vite": "^7.0.0"
+    "vite": "^7.2.2"
+  },
+  "dependencies": {
+    "@tensorflow-models/face-landmarks-detection": "^1.0.6",
+    "@tensorflow/tfjs": "^4.22.0",
+    "face-api.js": "^0.22.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   }
 }
