@@ -1,9 +1,8 @@
 import React from 'react';
-import CameraTest from './CameraTest';
-// import FaceDots from './FaceDots';  // We'll use this later
+import ModelTest from './ModelTest';
 
 function App() {
-  return <CameraTest />;
+  return <ModelTest />;
 }
 
 export default App;
