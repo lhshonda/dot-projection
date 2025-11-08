@@ -12,6 +12,7 @@ const FaceHandTracker = () => {
   const [faceModel, setFaceModel] = useState(null);
   const [handModel, setHandModel] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPinching, setIsPinching] = useState(true);
   const [error, setError] = useState(null);
   const [fps, setFps] = useState(0);
   const [status, setStatus] = useState('Initializing...');
@@ -117,18 +118,6 @@ const FaceHandTracker = () => {
       
       let color = '#ffffff';
       
-      // // Lips
-      // if ((index >= 61 && index <= 80) || (index >= 308 && index <= 324) || (index >= 402 && index <= 415)) {
-      //   color = '#ff6b6b';
-      // } 
-      // // Eyes
-      // else if ([33, 133, 159, 145, 263, 362, 386, 374].includes(index)) {
-      //   color = '#4ecdc4';
-      // } 
-      // // Eyebrows
-      // else if ([46, 52, 65, 55, 276, 282, 295, 285].includes(index)) {
-      //   color = '#ffe66d';
-      // }
       
       ctx.globalAlpha = opacity;
       ctx.fillStyle = color;
@@ -145,6 +134,21 @@ const FaceHandTracker = () => {
     return true;
   };
 
+  const estimateDepthFromSpread = (hand) => {
+    const keypoints = hand.keypoints;
+    const thumb = keypoints[4];
+    const pinky = keypoints[20];
+    
+    // Distance between thumb and pinky
+    const spread = Math.sqrt(
+      Math.pow(thumb.x - pinky.x, 2) +
+      Math.pow(thumb.y - pinky.y, 2)
+    );
+    
+    // Larger spread = closer to camera
+    return spread; // Use this as a depth proxy
+  };
+
   const drawHandDots = (predictions, ctx) => {
     if (!predictions || predictions.length === 0) {
       return false;
@@ -152,6 +156,7 @@ const FaceHandTracker = () => {
 
     predictions.forEach((hand, handIndex) => {
       const keypoints = hand.keypoints;
+
       
       // Define hand colors (different for left/right)
       // const handColor = handIndex === 0 ? '#00ff88' : '#ff00ff';
@@ -161,6 +166,32 @@ const FaceHandTracker = () => {
       // Finger tip indices: Thumb=4, Index=8, Middle=12, Ring=16, Pinky=20
       const fingerTips = [4, 8, 12, 16, 20];
       
+
+      const fingertipPositions = fingerTips.map(index => ({
+        name: ['thumb', 'pointer', 'middle', 'ring', 'pinky'][fingerTips.indexOf(index)],
+        x: keypoints[index].x,
+        y: keypoints[index].y,
+        z: estimateDepthFromSpread(hand) || 0
+      }));
+      
+      // Do your logic with fingertipPositions
+      // Example: Check if index finger and thumb are close (pinch gesture)
+      const distance3D = Math.sqrt(
+        Math.pow(fingertipPositions[0].x - fingertipPositions[1].x, 2) +
+        Math.pow(fingertipPositions[0].y - fingertipPositions[1].y, 2) +
+        Math.pow((fingertipPositions[0].z || 0) - (fingertipPositions[1].z || 0), 2) 
+      );
+
+      const distance = Math.sqrt(
+        Math.pow(fingertipPositions[0].x - fingertipPositions[1].x, 2) +
+        Math.pow(fingertipPositions[0].y - fingertipPositions[1].y, 2)
+      );
+
+      console.log(`pointer z: ${fingertipPositions[0].z}`);
+      
+      if (distance3D < 50 && (fingertipPositions[0].z > 150 && fingertipPositions[0].z < 520)) {
+        console.log('Pinch detected! (accounting for depth)');
+      }
       // Draw connections (skeleton)
       const connections = [
         // Thumb
@@ -174,12 +205,12 @@ const FaceHandTracker = () => {
         // Pinky
         [0, 17], [17, 18], [18, 19], [19, 20],
         // Palm
-        [5, 9], [9, 13], [13, 17], [0, 5], [0, 17]
+        [5, 9], [9, 13], [13, 17], [0, 5], [0, 18]
       ];
       
       // Draw skeleton lines
       ctx.strokeStyle = handColor;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 20;
       ctx.globalAlpha = 0.2;
       
       connections.forEach(([i, j]) => {
@@ -203,6 +234,10 @@ const FaceHandTracker = () => {
         const dotSize = isFingerTip ? 5 : 3;
         const color = isFingerTip ? fingerTipColor : handColor;
         // const color = handColor;
+
+        if (fingerTips[0].x == fingerTips[1].x && fingerTips[0].y == fingerTips[1].y){
+
+        }
         
         ctx.fillStyle = color;
         // ctx.shadowBlur = isFingerTip ? 5 : 3;
@@ -235,7 +270,7 @@ const FaceHandTracker = () => {
 
     try {
       // Clear canvas
-      ctx.fillStyle = '#0a0a0a';
+      ctx.fillStyle = '#292222ff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       let faceDetected = false;
