@@ -1,8 +1,8 @@
 import React from 'react';
-import ModelTest from './ModelTest';
+import FaceDotsMesh from './FaceDotsMesh';
 
 function App() {
-  return <ModelTest />;
+  return <FaceDotsMesh />;
 }
 
 export default App;
