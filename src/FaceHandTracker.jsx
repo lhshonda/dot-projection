@@ -164,7 +164,7 @@ const FaceHandTracker = () => {
       // Draw connections (skeleton)
       const connections = [
         // Thumb
-        [0, 1], [1, 2], [2, 3], [3, 4],
+        [5, 1], [1, 2], [2, 3], [3, 4],
         // Index finger
         [0, 5], [5, 6], [6, 7], [7, 8],
         // Middle finger
@@ -180,7 +180,7 @@ const FaceHandTracker = () => {
       // Draw skeleton lines
       ctx.strokeStyle = handColor;
       ctx.lineWidth = 2;
-      ctx.globalAlpha = 1;
+      ctx.globalAlpha = 0.2;
       
       connections.forEach(([i, j]) => {
         const point1 = keypoints[i];
