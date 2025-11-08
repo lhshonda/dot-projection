@@ -104,39 +104,42 @@ const FaceHandTracker = () => {
     }
 
     const keypoints = predictions[0].keypoints;
+    const canvas = ctx.canvas;
+    // const centerX = canvas.width / 2;
+    // const centerY = canvas.height / 2;
     
     keypoints.forEach((point, index) => {
       const { x, y, z } = point;
       
       const depth = z ? Math.max(0, Math.min(1, (-z + 50) / 100)) : 0.5;
-      const dotSize = 1.5 + depth * 2;
+      const dotSize = 1.1 + depth * 0.2;
       const opacity = 0.7 + depth * 0.3;
       
       let color = '#ffffff';
       
-      // Lips
-      if ((index >= 61 && index <= 80) || (index >= 308 && index <= 324) || (index >= 402 && index <= 415)) {
-        color = '#ff6b6b';
-      } 
-      // Eyes
-      else if ([33, 133, 159, 145, 263, 362, 386, 374].includes(index)) {
-        color = '#4ecdc4';
-      } 
-      // Eyebrows
-      else if ([46, 52, 65, 55, 276, 282, 295, 285].includes(index)) {
-        color = '#ffe66d';
-      }
+      // // Lips
+      // if ((index >= 61 && index <= 80) || (index >= 308 && index <= 324) || (index >= 402 && index <= 415)) {
+      //   color = '#ff6b6b';
+      // } 
+      // // Eyes
+      // else if ([33, 133, 159, 145, 263, 362, 386, 374].includes(index)) {
+      //   color = '#4ecdc4';
+      // } 
+      // // Eyebrows
+      // else if ([46, 52, 65, 55, 276, 282, 295, 285].includes(index)) {
+      //   color = '#ffe66d';
+      // }
       
       ctx.globalAlpha = opacity;
       ctx.fillStyle = color;
-      ctx.shadowBlur = 3;
+      // ctx.shadowBlur = 3;
       ctx.shadowColor = color;
       ctx.beginPath();
       ctx.arc(x, y, dotSize, 0, Math.PI * 2);
       ctx.fill();
     });
     
-    ctx.shadowBlur = 0;
+    // ctx.shadowBlur = 0;
     ctx.globalAlpha = 1;
     
     return true;
@@ -151,7 +154,8 @@ const FaceHandTracker = () => {
       const keypoints = hand.keypoints;
       
       // Define hand colors (different for left/right)
-      const handColor = handIndex === 0 ? '#00ff88' : '#ff00ff';
+      // const handColor = handIndex === 0 ? '#00ff88' : '#ff00ff';
+      const handColor = handIndex === 0 ? '#ffffff' : '#ffffff';
       const fingerTipColor = handIndex === 0 ? '#00ffff' : '#ffff00';
       
       // Finger tip indices: Thumb=4, Index=8, Middle=12, Ring=16, Pinky=20
@@ -175,8 +179,8 @@ const FaceHandTracker = () => {
       
       // Draw skeleton lines
       ctx.strokeStyle = handColor;
-      ctx.lineWidth = 5;
-      ctx.globalAlpha = 0.5;
+      ctx.lineWidth = 2;
+      ctx.globalAlpha = 1;
       
       connections.forEach(([i, j]) => {
         const point1 = keypoints[i];
@@ -198,16 +202,17 @@ const FaceHandTracker = () => {
         const isFingerTip = fingerTips.includes(index);
         const dotSize = isFingerTip ? 5 : 3;
         const color = isFingerTip ? fingerTipColor : handColor;
+        // const color = handColor;
         
         ctx.fillStyle = color;
-        ctx.shadowBlur = isFingerTip ? 5 : 3;
-        ctx.shadowColor = color;
+        // ctx.shadowBlur = isFingerTip ? 5 : 3;
+        // ctx.shadowColor = color;
         ctx.beginPath();
         ctx.arc(x, y, dotSize, 0, Math.PI * 2);
         ctx.fill();
       });
       
-      ctx.shadowBlur = 8;
+      // ctx.shadowBlur = 8;
     });
     
     return true;
