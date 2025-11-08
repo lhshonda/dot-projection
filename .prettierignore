@@ -1,0 +1,22 @@
+# Ignore output folders
+dist/
+build/
+
+# Ignore dependencies
+node_modules/
+
+# Ignore lock files and package manager stuff
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore Vite cache
+.vite/
+
+# Ignore version control
+.git/
+.gitignore
+
+# Ignore system files
+.DS_Store
+Thumbs.db
