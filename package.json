@@ -13,7 +13,10 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "fix:all": "npm run format && npm run lint",
-    "watch": "concurrently \"eslint 'src/**/*.js' --watch --fix\" \"stylelint '**/*.css' --watch --fix\""
+    "watch": "concurrently \"eslint 'src/**/*.js' --watch --fix\" \"stylelint '**/*.css' --watch --fix\"",
+    "scan-samples": "node scripts/scan-samples.js",
+    "rename-samples": "node scripts/rename-samples.js",
+    "setup-samples": "npm run rename-samples && npm run scan-samples"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -34,6 +37,8 @@
     "@vitejs/plugin-react": "^5.1.0",
     "npm": "^11.6.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "tonal": "^6.4.2",
+    "tone": "^15.1.22"
   }
 }

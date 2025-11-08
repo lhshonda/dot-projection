@@ -1,0 +1,2449 @@
+{
+  "generated": "2025-11-08T21:11:10.828Z",
+  "totalSamples": 200,
+  "categories": [
+    "clap",
+    "crash",
+    "hihat",
+    "impact",
+    "kick",
+    "loop",
+    "openhat",
+    "other",
+    "percussion",
+    "ride",
+    "riser",
+    "snare",
+    "whitenoise"
+  ],
+  "samples": {
+    "loop": [
+      {
+        "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_12_-_128_BPM_Dmin.wav",
+        "name": "Cymatics_-_Arp_Loop_12_-_128_BPM_Dmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_12_-_128_BPM_Dmin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_13_-_128_BPM_Dmin.wav",
+        "name": "Cymatics_-_Arp_Loop_13_-_128_BPM_Dmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_13_-_128_BPM_Dmin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_32_-_128_BPM_Emin.wav",
+        "name": "Cymatics_-_Arp_Loop_32_-_128_BPM_Emin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_32_-_128_BPM_Emin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_11_-_128_BPM_F.wav",
+        "name": "Cymatics_-_Bass_House_Loop_11_-_128_BPM_F.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_11_-_128_BPM_F.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_6_-_128_BPM_E.wav",
+        "name": "Cymatics_-_Bass_House_Loop_6_-_128_BPM_E.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_6_-_128_BPM_E.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_9_-_128_BPM_E.wav",
+        "name": "Cymatics_-_Bass_House_Loop_9_-_128_BPM_E.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_9_-_128_BPM_E.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_1_-_128_BPM.wav",
+        "name": "Cymatics_-_Drum_Buildup_1_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_1_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_21_-_128_BPM.wav",
+        "name": "Cymatics_-_Drum_Buildup_21_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_21_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_3_-_128_BPM.wav",
+        "name": "Cymatics_-_Drum_Buildup_3_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_3_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_57_-_128_BPM.wav",
+        "name": "Cymatics_-_Drum_Buildup_57_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_57_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_9_-_128_BPM.wav",
+        "name": "Cymatics_-_Drum_Buildup_9_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_9_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Future_House_Loop_14_-_124_BPM_Fmin.wav",
+        "name": "Cymatics_-_Future_House_Loop_14_-_124_BPM_Fmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Future_House_Loop_14_-_124_BPM_Fmin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Future_House_Loop_3_-_128_BPM_Dmin.wav",
+        "name": "Cymatics_-_Future_House_Loop_3_-_128_BPM_Dmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Future_House_Loop_3_-_128_BPM_Dmin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_G_House_Drop_Loop_1_-_124_BPM_Dsharp_Min.wav",
+        "name": "Cymatics_-_G_House_Drop_Loop_1_-_124_BPM_Dsharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_G_House_Drop_Loop_1_-_124_BPM_Dsharp_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_G_House_Drop_Loop_15_-_128_BPM_F_Min.wav",
+        "name": "Cymatics_-_G_House_Drop_Loop_15_-_128_BPM_F_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_G_House_Drop_Loop_15_-_128_BPM_F_Min.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_1_-_122_BPM.wav",
+        "name": "Cymatics_-_G_House_Full_Drum_Loop_1_-_122_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_1_-_122_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_10_-_128_BPM.wav",
+        "name": "Cymatics_-_G_House_Full_Drum_Loop_10_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_10_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_6_-_126_BPM.wav",
+        "name": "Cymatics_-_G_House_Full_Drum_Loop_6_-_126_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_6_-_126_BPM.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_GG_Funk_Chord_Loop_17_-_128_BPM_D_Maj.wav",
+        "name": "Cymatics_-_GG_Funk_Chord_Loop_17_-_128_BPM_D_Maj.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_GG_Funk_Chord_Loop_17_-_128_BPM_D_Maj.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_GG_Funk_Chord_Loop_21_-_128_BPM_F_Maj.wav",
+        "name": "Cymatics_-_GG_Funk_Chord_Loop_21_-_128_BPM_F_Maj.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_GG_Funk_Chord_Loop_21_-_128_BPM_F_Maj.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_Guitar_Chord_Loop_24_-_128_BPM_Gmin.wav",
+        "name": "Cymatics_-_Guitar_Chord_Loop_24_-_128_BPM_Gmin.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_Guitar_Chord_Loop_24_-_128_BPM_Gmin.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_1_-_128_BPM.wav",
+        "name": "Cymatics_-_Hihat_Loop_1_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_1_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_28_-_128_BPM.wav",
+        "name": "Cymatics_-_Hihat_Loop_28_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_28_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_39_-_128_BPM.wav",
+        "name": "Cymatics_-_Hihat_Loop_39_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_39_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_House_Arp_2_-_128_BPM_E_Min.wav",
+        "name": "Cymatics_-_House_Arp_2_-_128_BPM_E_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_House_Arp_2_-_128_BPM_E_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_House_Arp_4_-_128_BPM_Gsharp_Min.wav",
+        "name": "Cymatics_-_House_Arp_4_-_128_BPM_Gsharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_House_Arp_4_-_128_BPM_Gsharp_Min.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_House_Buildup_Drums_2_-_128_BPM.wav",
+        "name": "Cymatics_-_House_Buildup_Drums_2_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_House_Buildup_Drums_2_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_House_Buildup_Drums_3_-_128_BPM.wav",
+        "name": "Cymatics_-_House_Buildup_Drums_3_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_House_Buildup_Drums_3_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_1_-_128_BPM_Csharp_Min.wav",
+        "name": "Cymatics_-_House_Chord_Loop_1_-_128_BPM_Csharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_1_-_128_BPM_Csharp_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_3_-_128_BPM_E_Min.wav",
+        "name": "Cymatics_-_House_Chord_Loop_3_-_128_BPM_E_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_3_-_128_BPM_E_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_4_-_128_BPM_G_Min.wav",
+        "name": "Cymatics_-_House_Chord_Loop_4_-_128_BPM_G_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_4_-_128_BPM_G_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_1_-_Bass_House_-_128_BPM_D_Min.wav",
+        "name": "Cymatics_-_House_Drop_Loop_1_-_Bass_House_-_128_BPM_D_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_1_-_Bass_House_-_128_BPM_D_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_4_-_Future_House_-_125_BPM_E_Min.wav",
+        "name": "Cymatics_-_House_Drop_Loop_4_-_Future_House_-_125_BPM_E_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_4_-_Future_House_-_125_BPM_E_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_5_-_Future_House_-_125_BPM_G_Min.wav",
+        "name": "Cymatics_-_House_Drop_Loop_5_-_Future_House_-_125_BPM_G_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_5_-_Future_House_-_125_BPM_G_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_House_Drop_Loop_6_-_Progressive_House_-_128_BPM_C_Min.wav",
+        "name": "Cymatics_-_House_Drop_Loop_6_-_Progressive_House_-_128_BPM_C_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_House_Drop_Loop_6_-_Progressive_House_-_128_BPM_C_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_House_Drop_Loop_7_-_Progressive_House_-_128_BPM_A_Min.wav",
+        "name": "Cymatics_-_House_Drop_Loop_7_-_Progressive_House_-_128_BPM_A_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_House_Drop_Loop_7_-_Progressive_House_-_128_BPM_A_Min.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_House_Full_Drum_Loop_1_-_128_BPM.wav",
+        "name": "Cymatics_-_House_Full_Drum_Loop_1_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_House_Full_Drum_Loop_1_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_House_Full_Drum_Loop_2_-_128_BPM.wav",
+        "name": "Cymatics_-_House_Full_Drum_Loop_2_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_House_Full_Drum_Loop_2_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_House_Hihat_Loop_1_-_128_BPM.wav",
+        "name": "Cymatics_-_House_Hihat_Loop_1_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_House_Hihat_Loop_1_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_House_Hihat_Loop_4_-_128_BPM.wav",
+        "name": "Cymatics_-_House_Hihat_Loop_4_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_House_Hihat_Loop_4_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_House_Piano_Loop_2_-_128_BPM_E_Min.wav",
+        "name": "Cymatics_-_House_Piano_Loop_2_-_128_BPM_E_Min.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_House_Piano_Loop_2_-_128_BPM_E_Min.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_House_Piano_Loop_3_-_128_BPM_F_Min.wav",
+        "name": "Cymatics_-_House_Piano_Loop_3_-_128_BPM_F_Min.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_House_Piano_Loop_3_-_128_BPM_F_Min.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_House_String_Loop_2_-_128_BPM_Fsharp_Min.wav",
+        "name": "Cymatics_-_House_String_Loop_2_-_128_BPM_Fsharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_House_String_Loop_2_-_128_BPM_Fsharp_Min.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_House_String_Loop_3_-_128_BPM_Asharp_Min.wav",
+        "name": "Cymatics_-_House_String_Loop_3_-_128_BPM_Asharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_House_String_Loop_3_-_128_BPM_Asharp_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_House_Vocal_Loop_1_-_128_BPM_E_Min.wav",
+        "name": "Cymatics_-_House_Vocal_Loop_1_-_128_BPM_E_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Loops/Cymatics_-_House_Vocal_Loop_1_-_128_BPM_E_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_House_Vocal_Loop_4_-_128_BPM_Asharp_Min.wav",
+        "name": "Cymatics_-_House_Vocal_Loop_4_-_128_BPM_Asharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Loops/Cymatics_-_House_Vocal_Loop_4_-_128_BPM_Asharp_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_House_Vocoder_Loop_2_-_128_BPM_G_Min.wav",
+        "name": "Cymatics_-_House_Vocoder_Loop_2_-_128_BPM_G_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_House_Vocoder_Loop_2_-_128_BPM_G_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_House_Vocoder_Loop_3_-_128_BPM_A_Min.wav",
+        "name": "Cymatics_-_House_Vocoder_Loop_3_-_128_BPM_A_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_House_Vocoder_Loop_3_-_128_BPM_A_Min.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_3_-_128_BPM.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_3_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_3_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_5_-_128_BPM.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_5_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_5_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_11_-_128_BPM.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_11_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_11_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_7_-_128_BPM.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_7_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_7_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_3_-_128_BPM_F_Min.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_3_-_128_BPM_F_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_3_-_128_BPM_F_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_4_-_128_BPM_B_Maj.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_4_-_128_BPM_B_Maj.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_4_-_128_BPM_B_Maj.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_Moonlight_Guitar_Loop_13_-_128_BPM_F_Maj.wav",
+        "name": "Cymatics_-_Moonlight_Guitar_Loop_13_-_128_BPM_F_Maj.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_Moonlight_Guitar_Loop_13_-_128_BPM_F_Maj.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_Moonlight_Guitar_Loop_15_-_128_BPM_A_Min.wav",
+        "name": "Cymatics_-_Moonlight_Guitar_Loop_15_-_128_BPM_A_Min.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_Moonlight_Guitar_Loop_15_-_128_BPM_A_Min.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Organic_Percussion_Loop_10_-_128_BPM.wav",
+        "name": "Cymatics_-_Organic_Percussion_Loop_10_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Organic_Percussion_Loop_10_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Organic_Percussion_Loop_12_-_128_BPM.wav",
+        "name": "Cymatics_-_Organic_Percussion_Loop_12_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Organic_Percussion_Loop_12_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_17_-_128_BPM.wav",
+        "name": "Cymatics_-_Perc_Loop_17_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_17_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_18_-_128_BPM.wav",
+        "name": "Cymatics_-_Perc_Loop_18_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_18_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_34_-_128_BPM.wav",
+        "name": "Cymatics_-_Perc_Loop_34_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_34_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_Piano_Loop_1_-_128_BPM_Cmin.wav",
+        "name": "Cymatics_-_Piano_Loop_1_-_128_BPM_Cmin.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_Piano_Loop_1_-_128_BPM_Cmin.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_Piano_Loop_9_-_128_BPM_Dsharpmin.wav",
+        "name": "Cymatics_-_Piano_Loop_9_-_128_BPM_Dsharpmin.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_Piano_Loop_9_-_128_BPM_Dsharpmin.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_13_-_128_BPM_G_Min.wav",
+        "name": "Cymatics_-_Prometheus_Vocal_Arp_13_-_128_BPM_G_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_13_-_128_BPM_G_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_16_-_128_BPM_Asharp_Min.wav",
+        "name": "Cymatics_-_Prometheus_Vocal_Arp_16_-_128_BPM_Asharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_16_-_128_BPM_Asharp_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_18_-_128_BPM_B_Min.wav",
+        "name": "Cymatics_-_Prometheus_Vocal_Arp_18_-_128_BPM_B_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_18_-_128_BPM_B_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_Prometheus_Vocal_Loop_20_-_128_BPM_E_Min.wav",
+        "name": "Cymatics_-_Prometheus_Vocal_Loop_20_-_128_BPM_E_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Loops/Cymatics_-_Prometheus_Vocal_Loop_20_-_128_BPM_E_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_Prometheus_Vocal_Loop_21_-_128_BPM_G_Min.wav",
+        "name": "Cymatics_-_Prometheus_Vocal_Loop_21_-_128_BPM_G_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Loops/Cymatics_-_Prometheus_Vocal_Loop_21_-_128_BPM_G_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_13_-_128_BPM_Fsharp_Min.wav",
+        "name": "Cymatics_-_Prometheus_Vocoder_Loop_13_-_128_BPM_Fsharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_13_-_128_BPM_Fsharp_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_17_-_128_BPM_Gsharp_Min.wav",
+        "name": "Cymatics_-_Prometheus_Vocoder_Loop_17_-_128_BPM_Gsharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_17_-_128_BPM_Gsharp_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_18_-_128_BPM_Gsharp_Min.wav",
+        "name": "Cymatics_-_Prometheus_Vocoder_Loop_18_-_128_BPM_Gsharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_18_-_128_BPM_Gsharp_Min.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_Scarlet_Piano_Loop_8_-_128_BPM_B_Min.wav",
+        "name": "Cymatics_-_Scarlet_Piano_Loop_8_-_128_BPM_B_Min.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_Scarlet_Piano_Loop_8_-_128_BPM_B_Min.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_Scarlet_String_Loop_11_-_128_BPM_Gsharp_Min.wav",
+        "name": "Cymatics_-_Scarlet_String_Loop_11_-_128_BPM_Gsharp_Min.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_Scarlet_String_Loop_11_-_128_BPM_Gsharp_Min.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_2_-_128_BPM.wav",
+        "name": "Cymatics_-_Shuffle_Full_Drum_Loop_2_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_2_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_25_-_128_BPM.wav",
+        "name": "Cymatics_-_Shuffle_Full_Drum_Loop_25_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_25_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_8_-_128_BPM.wav",
+        "name": "Cymatics_-_Shuffle_Full_Drum_Loop_8_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_8_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_13_-_128_BPM.wav",
+        "name": "Cymatics_-_Shuffle_Top_Drum_Loop_13_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_13_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_2_-_128_BPM.wav",
+        "name": "Cymatics_-_Shuffle_Top_Drum_Loop_2_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_2_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_8_-_128_BPM.wav",
+        "name": "Cymatics_-_Shuffle_Top_Drum_Loop_8_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_8_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_1_-_128_BPM_Cmin.wav",
+        "name": "Cymatics_-_Soft_Chord_Loop_1_-_128_BPM_Cmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_1_-_128_BPM_Cmin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_42_-_128_BPM_Amin.wav",
+        "name": "Cymatics_-_Soft_Chord_Loop_42_-_128_BPM_Amin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_42_-_128_BPM_Amin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_6_-_128_BPM_Dmin.wav",
+        "name": "Cymatics_-_Soft_Chord_Loop_6_-_128_BPM_Dmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_6_-_128_BPM_Dmin.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_String_Loop_17_-_128_BPM_Emin.wav",
+        "name": "Cymatics_-_String_Loop_17_-_128_BPM_Emin.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_String_Loop_17_-_128_BPM_Emin.wav"
+      },
+      {
+        "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_String_Loop_20_-_128_BPM_Emin.wav",
+        "name": "Cymatics_-_String_Loop_20_-_128_BPM_Emin.wav",
+        "category": "loop",
+        "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_String_Loop_20_-_128_BPM_Emin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_15_-_128_BPM_Dsharpmin.wav",
+        "name": "Cymatics_-_Super_Saw_Loop_15_-_128_BPM_Dsharpmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_15_-_128_BPM_Dsharpmin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_30_-_128_BPM_Fmin.wav",
+        "name": "Cymatics_-_Super_Saw_Loop_30_-_128_BPM_Fmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_30_-_128_BPM_Fmin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_35_-_128_BPM_Fsharpmin.wav",
+        "name": "Cymatics_-_Super_Saw_Loop_35_-_128_BPM_Fsharpmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_35_-_128_BPM_Fsharpmin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_40_-_128_BPM_Gmin.wav",
+        "name": "Cymatics_-_Super_Saw_Loop_40_-_128_BPM_Gmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_40_-_128_BPM_Gmin.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_8_-_128_BPM_Csharpmin.wav",
+        "name": "Cymatics_-_Super_Saw_Loop_8_-_128_BPM_Csharpmin.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_8_-_128_BPM_Csharpmin.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_2_-_110_BPM.wav",
+        "name": "Cymatics_-_Tension_Buildup_Drums_2_-_110_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_2_-_110_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_3_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_Buildup_Drums_3_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_3_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_4_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_Buildup_Drums_4_-_128_BPM.wav",
+        "category": "loop",
+        "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_4_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Titan_Chord_Loop_16_-_125_BPM_G_Min.wav",
+        "name": "Cymatics_-_Titan_Chord_Loop_16_-_125_BPM_G_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Titan_Chord_Loop_16_-_125_BPM_G_Min.wav"
+      },
+      {
+        "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Titan_Chord_Loop_19_-_128_BPM_F_Min.wav",
+        "name": "Cymatics_-_Titan_Chord_Loop_19_-_128_BPM_F_Min.wav",
+        "category": "loop",
+        "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Titan_Chord_Loop_19_-_128_BPM_F_Min.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_Vocal_Loop_12_-_128_Fsharpm.wav",
+        "name": "Cymatics_-_Vocal_Loop_12_-_128_Fsharpm.wav",
+        "category": "loop",
+        "relativePath": "Vocals/Vocal_Loops/Cymatics_-_Vocal_Loop_12_-_128_Fsharpm.wav"
+      }
+    ],
+    "clap": [
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_G_House_Clap_4.wav",
+        "name": "Cymatics_-_G_House_Clap_4.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_G_House_Clap_4.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_1.wav",
+        "name": "Cymatics_-_House_Clap_1.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_3.wav",
+        "name": "Cymatics_-_House_Clap_3.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_3.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_4.wav",
+        "name": "Cymatics_-_House_Clap_4.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_4.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Main_Clap_1.wav",
+        "name": "Cymatics_-_Main_Clap_1.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Main_Clap_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Main_Clap_26.wav",
+        "name": "Cymatics_-_Main_Clap_26.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Main_Clap_26.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Master_Collection_Huge_Clap_10.wav",
+        "name": "Cymatics_-_Master_Collection_Huge_Clap_10.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Master_Collection_Huge_Clap_10.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Master_Collection_Small_Clap_9.wav",
+        "name": "Cymatics_-_Master_Collection_Small_Clap_9.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Master_Collection_Small_Clap_9.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Titan_Other_Clap_1.wav",
+        "name": "Cymatics_-_Titan_Other_Clap_1.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Titan_Other_Clap_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Titan_Other_Clap_10.wav",
+        "name": "Cymatics_-_Titan_Other_Clap_10.wav",
+        "category": "clap",
+        "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Titan_Other_Clap_10.wav"
+      }
+    ],
+    "crash": [
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_18.wav",
+        "name": "Cymatics_-_Crash_18.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_18.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_23.wav",
+        "name": "Cymatics_-_Crash_23.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_23.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_8.wav",
+        "name": "Cymatics_-_Crash_8.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_8.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_House_Crash_2.wav",
+        "name": "Cymatics_-_House_Crash_2.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_House_Crash_2.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_House_Crash_3.wav",
+        "name": "Cymatics_-_House_Crash_3.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_House_Crash_3.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_1.wav",
+        "name": "Cymatics_-_Master_Collection_Crash_1.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_7.wav",
+        "name": "Cymatics_-_Master_Collection_Crash_7.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_7.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_8.wav",
+        "name": "Cymatics_-_Master_Collection_Crash_8.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_8.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Titan_Crash_2.wav",
+        "name": "Cymatics_-_Titan_Crash_2.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Titan_Crash_2.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Titan_Crash_7.wav",
+        "name": "Cymatics_-_Titan_Crash_7.wav",
+        "category": "crash",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Titan_Crash_7.wav"
+      }
+    ],
+    "hihat": [
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_1.wav",
+        "name": "Cymatics_-_Closed_Hihat_1.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_42.wav",
+        "name": "Cymatics_-_Closed_Hihat_42.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_42.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_6.wav",
+        "name": "Cymatics_-_Closed_Hihat_6.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_6.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_8.wav",
+        "name": "Cymatics_-_Closed_Hihat_8.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_8.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_1.wav",
+        "name": "Cymatics_-_G_House_Closed_Hi-Hat_1.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_2.wav",
+        "name": "Cymatics_-_G_House_Closed_Hi-Hat_2.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_2.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_5.wav",
+        "name": "Cymatics_-_G_House_Closed_Hi-Hat_5.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_5.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_House_Hihat_1.wav",
+        "name": "Cymatics_-_House_Hihat_1.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_House_Hihat_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Master_Collection_Closed_Hihat_10.wav",
+        "name": "Cymatics_-_Master_Collection_Closed_Hihat_10.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Master_Collection_Closed_Hihat_10.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Master_Collection_Closed_Hihat_5.wav",
+        "name": "Cymatics_-_Master_Collection_Closed_Hihat_5.wav",
+        "category": "hihat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Master_Collection_Closed_Hihat_5.wav"
+      }
+    ],
+    "openhat": [
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_1.wav",
+        "name": "Cymatics_-_G_House_Open_Hi-Hat_1.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_2.wav",
+        "name": "Cymatics_-_G_House_Open_Hi-Hat_2.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_2.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_3.wav",
+        "name": "Cymatics_-_G_House_Open_Hi-Hat_3.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_3.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Open_Hihat_4.wav",
+        "name": "Cymatics_-_Master_Collection_Open_Hihat_4.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Open_Hihat_4.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Open_Hihat_7.wav",
+        "name": "Cymatics_-_Master_Collection_Open_Hihat_7.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Open_Hihat_7.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Vol_2_Open_Hihat_4.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Open_Hihat_4.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Vol_2_Open_Hihat_4.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_14.wav",
+        "name": "Cymatics_-_Open_Hihat_14.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_14.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_22.wav",
+        "name": "Cymatics_-_Open_Hihat_22.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_22.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_3.wav",
+        "name": "Cymatics_-_Open_Hihat_3.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_3.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Titan_Open_Hihat_24.wav",
+        "name": "Cymatics_-_Titan_Open_Hihat_24.wav",
+        "category": "openhat",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Titan_Open_Hihat_24.wav"
+      }
+    ],
+    "ride": [
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_1.wav",
+        "name": "Cymatics_-_House_Ride_1.wav",
+        "category": "ride",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_2.wav",
+        "name": "Cymatics_-_House_Ride_2.wav",
+        "category": "ride",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_2.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_3.wav",
+        "name": "Cymatics_-_House_Ride_3.wav",
+        "category": "ride",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_3.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_Master_Collection_Ride_2.wav",
+        "name": "Cymatics_-_Master_Collection_Ride_2.wav",
+        "category": "ride",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_Master_Collection_Ride_2.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_Titan_Ride_3.wav",
+        "name": "Cymatics_-_Titan_Ride_3.wav",
+        "category": "ride",
+        "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_Titan_Ride_3.wav"
+      }
+    ],
+    "kick": [
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_2_-_D.wav",
+        "name": "Cymatics_-_G_House_Kick_2_-_D.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_2_-_D.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_4_-_F.wav",
+        "name": "Cymatics_-_G_House_Kick_4_-_F.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_4_-_F.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_5_-_Fsharp.wav",
+        "name": "Cymatics_-_G_House_Kick_5_-_Fsharp.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_5_-_Fsharp.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_House_Kick_3_-_E.wav",
+        "name": "Cymatics_-_House_Kick_3_-_E.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_House_Kick_3_-_E.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_House_Kick_5_-_Fsharp.wav",
+        "name": "Cymatics_-_House_Kick_5_-_Fsharp.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_House_Kick_5_-_Fsharp.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Kick_3_-_C.wav",
+        "name": "Cymatics_-_Kick_3_-_C.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Kick_3_-_C.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Kick_82_-_Gsharp.wav",
+        "name": "Cymatics_-_Kick_82_-_Gsharp.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Kick_82_-_Gsharp.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Kick_97_-_B.wav",
+        "name": "Cymatics_-_Kick_97_-_B.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Kick_97_-_B.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Master_Collection_Kick_12_-_Fsharp.wav",
+        "name": "Cymatics_-_Master_Collection_Kick_12_-_Fsharp.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Master_Collection_Kick_12_-_Fsharp.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Master_Collection_Kick_8_-_E.wav",
+        "name": "Cymatics_-_Master_Collection_Kick_8_-_E.wav",
+        "category": "kick",
+        "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Master_Collection_Kick_8_-_E.wav"
+      }
+    ],
+    "percussion": [
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Future_Bass_Perc_3.wav",
+        "name": "Cymatics_-_Future_Bass_Perc_3.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Future_Bass_Perc_3.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Future_Bass_Perc_7.wav",
+        "name": "Cymatics_-_Future_Bass_Perc_7.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Future_Bass_Perc_7.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Perc_4.wav",
+        "name": "Cymatics_-_Master_Collection_Perc_4.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Perc_4.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Perc_8.wav",
+        "name": "Cymatics_-_Master_Collection_Perc_8.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Perc_8.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_10.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Perc_10.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_10.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_13.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Perc_13.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_13.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_2.wav",
+        "name": "Cymatics_-_Master_Collection_Vol_2_Perc_2.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_2.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_121.wav",
+        "name": "Cymatics_-_Shockwave_Percussion_121.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_121.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_14.wav",
+        "name": "Cymatics_-_Shockwave_Percussion_14.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_14.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_3.wav",
+        "name": "Cymatics_-_Shockwave_Percussion_3.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_3.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_33.wav",
+        "name": "Cymatics_-_Shockwave_Percussion_33.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_33.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_81.wav",
+        "name": "Cymatics_-_Shockwave_Percussion_81.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_81.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Synth_Perc_2.wav",
+        "name": "Cymatics_-_Synth_Perc_2.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Synth_Perc_2.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Synth_Perc_22.wav",
+        "name": "Cymatics_-_Synth_Perc_22.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Synth_Perc_22.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Titan_Perc_7.wav",
+        "name": "Cymatics_-_Titan_Perc_7.wav",
+        "category": "percussion",
+        "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Titan_Perc_7.wav"
+      }
+    ],
+    "snare": [
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_Future_House_Snare_1.wav",
+        "name": "Cymatics_-_Future_House_Snare_1.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_Future_House_Snare_1.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_Future_House_Snare_13.wav",
+        "name": "Cymatics_-_Future_House_Snare_13.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_Future_House_Snare_13.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_1_-_Dsharp.wav",
+        "name": "Cymatics_-_G_House_Snare_1_-_Dsharp.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_1_-_Dsharp.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_2_-_F.wav",
+        "name": "Cymatics_-_G_House_Snare_2_-_F.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_2_-_F.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_3_-_Fsharp.wav",
+        "name": "Cymatics_-_G_House_Snare_3_-_Fsharp.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_3_-_Fsharp.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_4_-_Progressive_-_G.wav",
+        "name": "Cymatics_-_House_Snare_4_-_Progressive_-_G.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_4_-_Progressive_-_G.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_5_-_Progressive_-_A.wav",
+        "name": "Cymatics_-_House_Snare_5_-_Progressive_-_A.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_5_-_Progressive_-_A.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_7_-_Big_Room_-_Fsharp.wav",
+        "name": "Cymatics_-_House_Snare_7_-_Big_Room_-_Fsharp.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_7_-_Big_Room_-_Fsharp.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_Progressive_Snare_3.wav",
+        "name": "Cymatics_-_Progressive_Snare_3.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_Progressive_Snare_3.wav"
+      },
+      {
+        "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_Titan_Snare_40_-_Dsharp.wav",
+        "name": "Cymatics_-_Titan_Snare_40_-_Dsharp.wav",
+        "category": "snare",
+        "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_Titan_Snare_40_-_Dsharp.wav"
+      }
+    ],
+    "impact": [
+      {
+        "path": "/samples/FX/Impacts/Cymatics_-_House_Impact_1.wav",
+        "name": "Cymatics_-_House_Impact_1.wav",
+        "category": "impact",
+        "relativePath": "FX/Impacts/Cymatics_-_House_Impact_1.wav"
+      },
+      {
+        "path": "/samples/FX/Impacts/Cymatics_-_House_Impact_3.wav",
+        "name": "Cymatics_-_House_Impact_3.wav",
+        "category": "impact",
+        "relativePath": "FX/Impacts/Cymatics_-_House_Impact_3.wav"
+      },
+      {
+        "path": "/samples/FX/Impacts/Cymatics_-_Impact_22.wav",
+        "name": "Cymatics_-_Impact_22.wav",
+        "category": "impact",
+        "relativePath": "FX/Impacts/Cymatics_-_Impact_22.wav"
+      },
+      {
+        "path": "/samples/FX/Impacts/Cymatics_-_Impact_39.wav",
+        "name": "Cymatics_-_Impact_39.wav",
+        "category": "impact",
+        "relativePath": "FX/Impacts/Cymatics_-_Impact_39.wav"
+      },
+      {
+        "path": "/samples/FX/Impacts/Cymatics_-_Impact_4.wav",
+        "name": "Cymatics_-_Impact_4.wav",
+        "category": "impact",
+        "relativePath": "FX/Impacts/Cymatics_-_Impact_4.wav"
+      }
+    ],
+    "riser": [
+      {
+        "path": "/samples/FX/Risers/Cymatics_-_House_Riser_2_-_128_BPM_E.wav",
+        "name": "Cymatics_-_House_Riser_2_-_128_BPM_E.wav",
+        "category": "riser",
+        "relativePath": "FX/Risers/Cymatics_-_House_Riser_2_-_128_BPM_E.wav"
+      },
+      {
+        "path": "/samples/FX/Risers/Cymatics_-_House_Riser_3_-_128_BPM_F.wav",
+        "name": "Cymatics_-_House_Riser_3_-_128_BPM_F.wav",
+        "category": "riser",
+        "relativePath": "FX/Risers/Cymatics_-_House_Riser_3_-_128_BPM_F.wav"
+      },
+      {
+        "path": "/samples/FX/Risers/Cymatics_-_Riser_4_-_128_BPM_D.wav",
+        "name": "Cymatics_-_Riser_4_-_128_BPM_D.wav",
+        "category": "riser",
+        "relativePath": "FX/Risers/Cymatics_-_Riser_4_-_128_BPM_D.wav"
+      },
+      {
+        "path": "/samples/FX/Risers/Cymatics_-_Tension_Riser_4_-_128_BPM_E.wav",
+        "name": "Cymatics_-_Tension_Riser_4_-_128_BPM_E.wav",
+        "category": "riser",
+        "relativePath": "FX/Risers/Cymatics_-_Tension_Riser_4_-_128_BPM_E.wav"
+      },
+      {
+        "path": "/samples/FX/Risers/Cymatics_-_Tension_Riser_8_-_128_BPM_G.wav",
+        "name": "Cymatics_-_Tension_Riser_8_-_128_BPM_G.wav",
+        "category": "riser",
+        "relativePath": "FX/Risers/Cymatics_-_Tension_Riser_8_-_128_BPM_G.wav"
+      }
+    ],
+    "whitenoise": [
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_House_White_Noise_Up_-_128_BPM.wav",
+        "name": "Cymatics_-_House_White_Noise_Up_-_128_BPM.wav",
+        "category": "whitenoise",
+        "relativePath": "FX/White_Noise/Cymatics_-_House_White_Noise_Up_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_3_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_White_Noise_Down_3_-_128_BPM.wav",
+        "category": "whitenoise",
+        "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_3_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_6_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_White_Noise_Down_6_-_128_BPM.wav",
+        "category": "whitenoise",
+        "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_6_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_8_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_White_Noise_Down_8_-_128_BPM.wav",
+        "category": "whitenoise",
+        "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_8_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Up_3_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_White_Noise_Up_3_-_128_BPM.wav",
+        "category": "whitenoise",
+        "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Up_3_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Up_7_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_White_Noise_Up_7_-_128_BPM.wav",
+        "category": "whitenoise",
+        "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Up_7_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_White_Noise_Up_11.wav",
+        "name": "Cymatics_-_White_Noise_Up_11.wav",
+        "category": "whitenoise",
+        "relativePath": "FX/White_Noise/Cymatics_-_White_Noise_Up_11.wav"
+      }
+    ],
+    "other": [
+      {
+        "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_1_2_3_Spanish_-_128_BPM.wav",
+        "name": "Cymatics_-_1_2_3_Spanish_-_128_BPM.wav",
+        "category": "other",
+        "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_1_2_3_Spanish_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_G_House_Vocal_Shots_-_Who.wav",
+        "name": "Cymatics_-_G_House_Vocal_Shots_-_Who.wav",
+        "category": "other",
+        "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_G_House_Vocal_Shots_-_Who.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_Phrase_-_Deep_House.wav",
+        "name": "Cymatics_-_Phrase_-_Deep_House.wav",
+        "category": "other",
+        "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_Phrase_-_Deep_House.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_Predrop_Vocal_-_Hands_Up_-_128_BPM.wav",
+        "name": "Cymatics_-_Predrop_Vocal_-_Hands_Up_-_128_BPM.wav",
+        "category": "other",
+        "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_Predrop_Vocal_-_Hands_Up_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_Predrop_Vocal_-_Its_A_House_Party_-_128_BPM.wav",
+        "name": "Cymatics_-_Predrop_Vocal_-_Its_A_House_Party_-_128_BPM.wav",
+        "category": "other",
+        "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_Predrop_Vocal_-_Its_A_House_Party_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_Tension_Noise_Down_1_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_Noise_Down_1_-_128_BPM.wav",
+        "category": "other",
+        "relativePath": "FX/White_Noise/Cymatics_-_Tension_Noise_Down_1_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_Tension_Noise_Down_2_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_Noise_Down_2_-_128_BPM.wav",
+        "category": "other",
+        "relativePath": "FX/White_Noise/Cymatics_-_Tension_Noise_Down_2_-_128_BPM.wav"
+      },
+      {
+        "path": "/samples/FX/White_Noise/Cymatics_-_Tension_Noise_Down_Up_1_-_128_BPM.wav",
+        "name": "Cymatics_-_Tension_Noise_Down_Up_1_-_128_BPM.wav",
+        "category": "other",
+        "relativePath": "FX/White_Noise/Cymatics_-_Tension_Noise_Down_Up_1_-_128_BPM.wav"
+      }
+    ]
+  },
+  "allSamples": [
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_1_-_128_BPM.wav",
+      "name": "Cymatics_-_Drum_Buildup_1_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_1_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_21_-_128_BPM.wav",
+      "name": "Cymatics_-_Drum_Buildup_21_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_21_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_3_-_128_BPM.wav",
+      "name": "Cymatics_-_Drum_Buildup_3_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_3_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_57_-_128_BPM.wav",
+      "name": "Cymatics_-_Drum_Buildup_57_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_57_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_9_-_128_BPM.wav",
+      "name": "Cymatics_-_Drum_Buildup_9_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Drum_Buildup_9_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_House_Buildup_Drums_2_-_128_BPM.wav",
+      "name": "Cymatics_-_House_Buildup_Drums_2_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_House_Buildup_Drums_2_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_House_Buildup_Drums_3_-_128_BPM.wav",
+      "name": "Cymatics_-_House_Buildup_Drums_3_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_House_Buildup_Drums_3_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_2_-_110_BPM.wav",
+      "name": "Cymatics_-_Tension_Buildup_Drums_2_-_110_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_2_-_110_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_3_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_Buildup_Drums_3_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_3_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_4_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_Buildup_Drums_4_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Buildup/Cymatics_-_Tension_Buildup_Drums_4_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_10_-_128_BPM.wav",
+      "name": "Cymatics_-_G_House_Full_Drum_Loop_10_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_10_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_1_-_122_BPM.wav",
+      "name": "Cymatics_-_G_House_Full_Drum_Loop_1_-_122_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_1_-_122_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_6_-_126_BPM.wav",
+      "name": "Cymatics_-_G_House_Full_Drum_Loop_6_-_126_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_G_House_Full_Drum_Loop_6_-_126_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_House_Full_Drum_Loop_1_-_128_BPM.wav",
+      "name": "Cymatics_-_House_Full_Drum_Loop_1_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_House_Full_Drum_Loop_1_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_House_Full_Drum_Loop_2_-_128_BPM.wav",
+      "name": "Cymatics_-_House_Full_Drum_Loop_2_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_House_Full_Drum_Loop_2_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_3_-_128_BPM.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_3_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_3_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_5_-_128_BPM.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_5_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Master_Collection_Vol_2_Full_Drum_Loop_5_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_25_-_128_BPM.wav",
+      "name": "Cymatics_-_Shuffle_Full_Drum_Loop_25_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_25_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_2_-_128_BPM.wav",
+      "name": "Cymatics_-_Shuffle_Full_Drum_Loop_2_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_2_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_8_-_128_BPM.wav",
+      "name": "Cymatics_-_Shuffle_Full_Drum_Loop_8_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Full/Cymatics_-_Shuffle_Full_Drum_Loop_8_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_1_-_128_BPM.wav",
+      "name": "Cymatics_-_Hihat_Loop_1_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_1_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_28_-_128_BPM.wav",
+      "name": "Cymatics_-_Hihat_Loop_28_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_28_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_39_-_128_BPM.wav",
+      "name": "Cymatics_-_Hihat_Loop_39_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Hihat_Loop_39_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_House_Hihat_Loop_1_-_128_BPM.wav",
+      "name": "Cymatics_-_House_Hihat_Loop_1_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_House_Hihat_Loop_1_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_House_Hihat_Loop_4_-_128_BPM.wav",
+      "name": "Cymatics_-_House_Hihat_Loop_4_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_House_Hihat_Loop_4_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_11_-_128_BPM.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_11_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_11_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_7_-_128_BPM.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_7_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Master_Collection_Vol_2_Top_Drum_Loop_7_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Organic_Percussion_Loop_10_-_128_BPM.wav",
+      "name": "Cymatics_-_Organic_Percussion_Loop_10_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Organic_Percussion_Loop_10_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Organic_Percussion_Loop_12_-_128_BPM.wav",
+      "name": "Cymatics_-_Organic_Percussion_Loop_12_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Organic_Percussion_Loop_12_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_17_-_128_BPM.wav",
+      "name": "Cymatics_-_Perc_Loop_17_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_17_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_18_-_128_BPM.wav",
+      "name": "Cymatics_-_Perc_Loop_18_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_18_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_34_-_128_BPM.wav",
+      "name": "Cymatics_-_Perc_Loop_34_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Perc_Loop_34_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_13_-_128_BPM.wav",
+      "name": "Cymatics_-_Shuffle_Top_Drum_Loop_13_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_13_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_2_-_128_BPM.wav",
+      "name": "Cymatics_-_Shuffle_Top_Drum_Loop_2_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_2_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_8_-_128_BPM.wav",
+      "name": "Cymatics_-_Shuffle_Top_Drum_Loop_8_-_128_BPM.wav",
+      "category": "loop",
+      "relativePath": "Drums_-_Loops/Loops_-_Top/Cymatics_-_Shuffle_Top_Drum_Loop_8_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_G_House_Clap_4.wav",
+      "name": "Cymatics_-_G_House_Clap_4.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_G_House_Clap_4.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_1.wav",
+      "name": "Cymatics_-_House_Clap_1.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_3.wav",
+      "name": "Cymatics_-_House_Clap_3.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_3.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_4.wav",
+      "name": "Cymatics_-_House_Clap_4.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_House_Clap_4.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Main_Clap_1.wav",
+      "name": "Cymatics_-_Main_Clap_1.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Main_Clap_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Main_Clap_26.wav",
+      "name": "Cymatics_-_Main_Clap_26.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Main_Clap_26.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Master_Collection_Huge_Clap_10.wav",
+      "name": "Cymatics_-_Master_Collection_Huge_Clap_10.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Master_Collection_Huge_Clap_10.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Master_Collection_Small_Clap_9.wav",
+      "name": "Cymatics_-_Master_Collection_Small_Clap_9.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Master_Collection_Small_Clap_9.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Titan_Other_Clap_1.wav",
+      "name": "Cymatics_-_Titan_Other_Clap_1.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Titan_Other_Clap_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Claps/Cymatics_-_Titan_Other_Clap_10.wav",
+      "name": "Cymatics_-_Titan_Other_Clap_10.wav",
+      "category": "clap",
+      "relativePath": "Drums_-_One_Shots/Claps/Cymatics_-_Titan_Other_Clap_10.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_18.wav",
+      "name": "Cymatics_-_Crash_18.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_18.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_23.wav",
+      "name": "Cymatics_-_Crash_23.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_23.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_8.wav",
+      "name": "Cymatics_-_Crash_8.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Crash_8.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_House_Crash_2.wav",
+      "name": "Cymatics_-_House_Crash_2.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_House_Crash_2.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_House_Crash_3.wav",
+      "name": "Cymatics_-_House_Crash_3.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_House_Crash_3.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_1.wav",
+      "name": "Cymatics_-_Master_Collection_Crash_1.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_7.wav",
+      "name": "Cymatics_-_Master_Collection_Crash_7.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_7.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_8.wav",
+      "name": "Cymatics_-_Master_Collection_Crash_8.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Master_Collection_Crash_8.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Titan_Crash_2.wav",
+      "name": "Cymatics_-_Titan_Crash_2.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Titan_Crash_2.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Titan_Crash_7.wav",
+      "name": "Cymatics_-_Titan_Crash_7.wav",
+      "category": "crash",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Crashes/Cymatics_-_Titan_Crash_7.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_1.wav",
+      "name": "Cymatics_-_Closed_Hihat_1.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_42.wav",
+      "name": "Cymatics_-_Closed_Hihat_42.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_42.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_6.wav",
+      "name": "Cymatics_-_Closed_Hihat_6.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_6.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_8.wav",
+      "name": "Cymatics_-_Closed_Hihat_8.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Closed_Hihat_8.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_1.wav",
+      "name": "Cymatics_-_G_House_Closed_Hi-Hat_1.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_2.wav",
+      "name": "Cymatics_-_G_House_Closed_Hi-Hat_2.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_2.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_5.wav",
+      "name": "Cymatics_-_G_House_Closed_Hi-Hat_5.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_G_House_Closed_Hi-Hat_5.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_House_Hihat_1.wav",
+      "name": "Cymatics_-_House_Hihat_1.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_House_Hihat_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Master_Collection_Closed_Hihat_10.wav",
+      "name": "Cymatics_-_Master_Collection_Closed_Hihat_10.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Master_Collection_Closed_Hihat_10.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Master_Collection_Closed_Hihat_5.wav",
+      "name": "Cymatics_-_Master_Collection_Closed_Hihat_5.wav",
+      "category": "hihat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Closed/Cymatics_-_Master_Collection_Closed_Hihat_5.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_1.wav",
+      "name": "Cymatics_-_G_House_Open_Hi-Hat_1.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_2.wav",
+      "name": "Cymatics_-_G_House_Open_Hi-Hat_2.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_2.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_3.wav",
+      "name": "Cymatics_-_G_House_Open_Hi-Hat_3.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_G_House_Open_Hi-Hat_3.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Open_Hihat_4.wav",
+      "name": "Cymatics_-_Master_Collection_Open_Hihat_4.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Open_Hihat_4.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Open_Hihat_7.wav",
+      "name": "Cymatics_-_Master_Collection_Open_Hihat_7.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Open_Hihat_7.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Vol_2_Open_Hihat_4.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Open_Hihat_4.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Master_Collection_Vol_2_Open_Hihat_4.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_14.wav",
+      "name": "Cymatics_-_Open_Hihat_14.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_14.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_22.wav",
+      "name": "Cymatics_-_Open_Hihat_22.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_22.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_3.wav",
+      "name": "Cymatics_-_Open_Hihat_3.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Open_Hihat_3.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Titan_Open_Hihat_24.wav",
+      "name": "Cymatics_-_Titan_Open_Hihat_24.wav",
+      "category": "openhat",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Hihats_-_Open/Cymatics_-_Titan_Open_Hihat_24.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_1.wav",
+      "name": "Cymatics_-_House_Ride_1.wav",
+      "category": "ride",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_2.wav",
+      "name": "Cymatics_-_House_Ride_2.wav",
+      "category": "ride",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_2.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_3.wav",
+      "name": "Cymatics_-_House_Ride_3.wav",
+      "category": "ride",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_House_Ride_3.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_Master_Collection_Ride_2.wav",
+      "name": "Cymatics_-_Master_Collection_Ride_2.wav",
+      "category": "ride",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_Master_Collection_Ride_2.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_Titan_Ride_3.wav",
+      "name": "Cymatics_-_Titan_Ride_3.wav",
+      "category": "ride",
+      "relativePath": "Drums_-_One_Shots/Cymbals/Rides/Cymatics_-_Titan_Ride_3.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_2_-_D.wav",
+      "name": "Cymatics_-_G_House_Kick_2_-_D.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_2_-_D.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_4_-_F.wav",
+      "name": "Cymatics_-_G_House_Kick_4_-_F.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_4_-_F.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_5_-_Fsharp.wav",
+      "name": "Cymatics_-_G_House_Kick_5_-_Fsharp.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_G_House_Kick_5_-_Fsharp.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_House_Kick_3_-_E.wav",
+      "name": "Cymatics_-_House_Kick_3_-_E.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_House_Kick_3_-_E.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_House_Kick_5_-_Fsharp.wav",
+      "name": "Cymatics_-_House_Kick_5_-_Fsharp.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_House_Kick_5_-_Fsharp.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Kick_3_-_C.wav",
+      "name": "Cymatics_-_Kick_3_-_C.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Kick_3_-_C.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Kick_82_-_Gsharp.wav",
+      "name": "Cymatics_-_Kick_82_-_Gsharp.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Kick_82_-_Gsharp.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Kick_97_-_B.wav",
+      "name": "Cymatics_-_Kick_97_-_B.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Kick_97_-_B.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Master_Collection_Kick_12_-_Fsharp.wav",
+      "name": "Cymatics_-_Master_Collection_Kick_12_-_Fsharp.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Master_Collection_Kick_12_-_Fsharp.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Kicks/Cymatics_-_Master_Collection_Kick_8_-_E.wav",
+      "name": "Cymatics_-_Master_Collection_Kick_8_-_E.wav",
+      "category": "kick",
+      "relativePath": "Drums_-_One_Shots/Kicks/Cymatics_-_Master_Collection_Kick_8_-_E.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Future_Bass_Perc_3.wav",
+      "name": "Cymatics_-_Future_Bass_Perc_3.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Future_Bass_Perc_3.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Future_Bass_Perc_7.wav",
+      "name": "Cymatics_-_Future_Bass_Perc_7.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Future_Bass_Perc_7.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Perc_4.wav",
+      "name": "Cymatics_-_Master_Collection_Perc_4.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Perc_4.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Perc_8.wav",
+      "name": "Cymatics_-_Master_Collection_Perc_8.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Perc_8.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_10.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Perc_10.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_10.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_13.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Perc_13.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_13.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_2.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Perc_2.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Master_Collection_Vol_2_Perc_2.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_121.wav",
+      "name": "Cymatics_-_Shockwave_Percussion_121.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_121.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_14.wav",
+      "name": "Cymatics_-_Shockwave_Percussion_14.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_14.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_3.wav",
+      "name": "Cymatics_-_Shockwave_Percussion_3.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_3.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_33.wav",
+      "name": "Cymatics_-_Shockwave_Percussion_33.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_33.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_81.wav",
+      "name": "Cymatics_-_Shockwave_Percussion_81.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Shockwave_Percussion_81.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Synth_Perc_2.wav",
+      "name": "Cymatics_-_Synth_Perc_2.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Synth_Perc_2.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Synth_Perc_22.wav",
+      "name": "Cymatics_-_Synth_Perc_22.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Synth_Perc_22.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Percussion/Cymatics_-_Titan_Perc_7.wav",
+      "name": "Cymatics_-_Titan_Perc_7.wav",
+      "category": "percussion",
+      "relativePath": "Drums_-_One_Shots/Percussion/Cymatics_-_Titan_Perc_7.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_Future_House_Snare_1.wav",
+      "name": "Cymatics_-_Future_House_Snare_1.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_Future_House_Snare_1.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_Future_House_Snare_13.wav",
+      "name": "Cymatics_-_Future_House_Snare_13.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_Future_House_Snare_13.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_1_-_Dsharp.wav",
+      "name": "Cymatics_-_G_House_Snare_1_-_Dsharp.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_1_-_Dsharp.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_2_-_F.wav",
+      "name": "Cymatics_-_G_House_Snare_2_-_F.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_2_-_F.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_3_-_Fsharp.wav",
+      "name": "Cymatics_-_G_House_Snare_3_-_Fsharp.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_G_House_Snare_3_-_Fsharp.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_4_-_Progressive_-_G.wav",
+      "name": "Cymatics_-_House_Snare_4_-_Progressive_-_G.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_4_-_Progressive_-_G.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_5_-_Progressive_-_A.wav",
+      "name": "Cymatics_-_House_Snare_5_-_Progressive_-_A.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_5_-_Progressive_-_A.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_7_-_Big_Room_-_Fsharp.wav",
+      "name": "Cymatics_-_House_Snare_7_-_Big_Room_-_Fsharp.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_House_Snare_7_-_Big_Room_-_Fsharp.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_Progressive_Snare_3.wav",
+      "name": "Cymatics_-_Progressive_Snare_3.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_Progressive_Snare_3.wav"
+    },
+    {
+      "path": "/samples/Drums_-_One_Shots/Snares/Cymatics_-_Titan_Snare_40_-_Dsharp.wav",
+      "name": "Cymatics_-_Titan_Snare_40_-_Dsharp.wav",
+      "category": "snare",
+      "relativePath": "Drums_-_One_Shots/Snares/Cymatics_-_Titan_Snare_40_-_Dsharp.wav"
+    },
+    {
+      "path": "/samples/FX/Impacts/Cymatics_-_House_Impact_1.wav",
+      "name": "Cymatics_-_House_Impact_1.wav",
+      "category": "impact",
+      "relativePath": "FX/Impacts/Cymatics_-_House_Impact_1.wav"
+    },
+    {
+      "path": "/samples/FX/Impacts/Cymatics_-_House_Impact_3.wav",
+      "name": "Cymatics_-_House_Impact_3.wav",
+      "category": "impact",
+      "relativePath": "FX/Impacts/Cymatics_-_House_Impact_3.wav"
+    },
+    {
+      "path": "/samples/FX/Impacts/Cymatics_-_Impact_22.wav",
+      "name": "Cymatics_-_Impact_22.wav",
+      "category": "impact",
+      "relativePath": "FX/Impacts/Cymatics_-_Impact_22.wav"
+    },
+    {
+      "path": "/samples/FX/Impacts/Cymatics_-_Impact_39.wav",
+      "name": "Cymatics_-_Impact_39.wav",
+      "category": "impact",
+      "relativePath": "FX/Impacts/Cymatics_-_Impact_39.wav"
+    },
+    {
+      "path": "/samples/FX/Impacts/Cymatics_-_Impact_4.wav",
+      "name": "Cymatics_-_Impact_4.wav",
+      "category": "impact",
+      "relativePath": "FX/Impacts/Cymatics_-_Impact_4.wav"
+    },
+    {
+      "path": "/samples/FX/Risers/Cymatics_-_House_Riser_2_-_128_BPM_E.wav",
+      "name": "Cymatics_-_House_Riser_2_-_128_BPM_E.wav",
+      "category": "riser",
+      "relativePath": "FX/Risers/Cymatics_-_House_Riser_2_-_128_BPM_E.wav"
+    },
+    {
+      "path": "/samples/FX/Risers/Cymatics_-_House_Riser_3_-_128_BPM_F.wav",
+      "name": "Cymatics_-_House_Riser_3_-_128_BPM_F.wav",
+      "category": "riser",
+      "relativePath": "FX/Risers/Cymatics_-_House_Riser_3_-_128_BPM_F.wav"
+    },
+    {
+      "path": "/samples/FX/Risers/Cymatics_-_Riser_4_-_128_BPM_D.wav",
+      "name": "Cymatics_-_Riser_4_-_128_BPM_D.wav",
+      "category": "riser",
+      "relativePath": "FX/Risers/Cymatics_-_Riser_4_-_128_BPM_D.wav"
+    },
+    {
+      "path": "/samples/FX/Risers/Cymatics_-_Tension_Riser_4_-_128_BPM_E.wav",
+      "name": "Cymatics_-_Tension_Riser_4_-_128_BPM_E.wav",
+      "category": "riser",
+      "relativePath": "FX/Risers/Cymatics_-_Tension_Riser_4_-_128_BPM_E.wav"
+    },
+    {
+      "path": "/samples/FX/Risers/Cymatics_-_Tension_Riser_8_-_128_BPM_G.wav",
+      "name": "Cymatics_-_Tension_Riser_8_-_128_BPM_G.wav",
+      "category": "riser",
+      "relativePath": "FX/Risers/Cymatics_-_Tension_Riser_8_-_128_BPM_G.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_House_White_Noise_Up_-_128_BPM.wav",
+      "name": "Cymatics_-_House_White_Noise_Up_-_128_BPM.wav",
+      "category": "whitenoise",
+      "relativePath": "FX/White_Noise/Cymatics_-_House_White_Noise_Up_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_Tension_Noise_Down_1_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_Noise_Down_1_-_128_BPM.wav",
+      "category": "other",
+      "relativePath": "FX/White_Noise/Cymatics_-_Tension_Noise_Down_1_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_Tension_Noise_Down_2_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_Noise_Down_2_-_128_BPM.wav",
+      "category": "other",
+      "relativePath": "FX/White_Noise/Cymatics_-_Tension_Noise_Down_2_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_Tension_Noise_Down_Up_1_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_Noise_Down_Up_1_-_128_BPM.wav",
+      "category": "other",
+      "relativePath": "FX/White_Noise/Cymatics_-_Tension_Noise_Down_Up_1_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_3_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_White_Noise_Down_3_-_128_BPM.wav",
+      "category": "whitenoise",
+      "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_3_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_6_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_White_Noise_Down_6_-_128_BPM.wav",
+      "category": "whitenoise",
+      "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_6_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_8_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_White_Noise_Down_8_-_128_BPM.wav",
+      "category": "whitenoise",
+      "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Down_8_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Up_3_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_White_Noise_Up_3_-_128_BPM.wav",
+      "category": "whitenoise",
+      "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Up_3_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_Tension_White_Noise_Up_7_-_128_BPM.wav",
+      "name": "Cymatics_-_Tension_White_Noise_Up_7_-_128_BPM.wav",
+      "category": "whitenoise",
+      "relativePath": "FX/White_Noise/Cymatics_-_Tension_White_Noise_Up_7_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/FX/White_Noise/Cymatics_-_White_Noise_Up_11.wav",
+      "name": "Cymatics_-_White_Noise_Up_11.wav",
+      "category": "whitenoise",
+      "relativePath": "FX/White_Noise/Cymatics_-_White_Noise_Up_11.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_GG_Funk_Chord_Loop_17_-_128_BPM_D_Maj.wav",
+      "name": "Cymatics_-_GG_Funk_Chord_Loop_17_-_128_BPM_D_Maj.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_GG_Funk_Chord_Loop_17_-_128_BPM_D_Maj.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_GG_Funk_Chord_Loop_21_-_128_BPM_F_Maj.wav",
+      "name": "Cymatics_-_GG_Funk_Chord_Loop_21_-_128_BPM_F_Maj.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_GG_Funk_Chord_Loop_21_-_128_BPM_F_Maj.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_Guitar_Chord_Loop_24_-_128_BPM_Gmin.wav",
+      "name": "Cymatics_-_Guitar_Chord_Loop_24_-_128_BPM_Gmin.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_Guitar_Chord_Loop_24_-_128_BPM_Gmin.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_Moonlight_Guitar_Loop_13_-_128_BPM_F_Maj.wav",
+      "name": "Cymatics_-_Moonlight_Guitar_Loop_13_-_128_BPM_F_Maj.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_Moonlight_Guitar_Loop_13_-_128_BPM_F_Maj.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Guitar_Loops/Cymatics_-_Moonlight_Guitar_Loop_15_-_128_BPM_A_Min.wav",
+      "name": "Cymatics_-_Moonlight_Guitar_Loop_15_-_128_BPM_A_Min.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Guitar_Loops/Cymatics_-_Moonlight_Guitar_Loop_15_-_128_BPM_A_Min.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_House_Piano_Loop_2_-_128_BPM_E_Min.wav",
+      "name": "Cymatics_-_House_Piano_Loop_2_-_128_BPM_E_Min.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_House_Piano_Loop_2_-_128_BPM_E_Min.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_House_Piano_Loop_3_-_128_BPM_F_Min.wav",
+      "name": "Cymatics_-_House_Piano_Loop_3_-_128_BPM_F_Min.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_House_Piano_Loop_3_-_128_BPM_F_Min.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_Piano_Loop_1_-_128_BPM_Cmin.wav",
+      "name": "Cymatics_-_Piano_Loop_1_-_128_BPM_Cmin.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_Piano_Loop_1_-_128_BPM_Cmin.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_Piano_Loop_9_-_128_BPM_Dsharpmin.wav",
+      "name": "Cymatics_-_Piano_Loop_9_-_128_BPM_Dsharpmin.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_Piano_Loop_9_-_128_BPM_Dsharpmin.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/Piano_Loops/Cymatics_-_Scarlet_Piano_Loop_8_-_128_BPM_B_Min.wav",
+      "name": "Cymatics_-_Scarlet_Piano_Loop_8_-_128_BPM_B_Min.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/Piano_Loops/Cymatics_-_Scarlet_Piano_Loop_8_-_128_BPM_B_Min.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_House_String_Loop_2_-_128_BPM_Fsharp_Min.wav",
+      "name": "Cymatics_-_House_String_Loop_2_-_128_BPM_Fsharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_House_String_Loop_2_-_128_BPM_Fsharp_Min.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_House_String_Loop_3_-_128_BPM_Asharp_Min.wav",
+      "name": "Cymatics_-_House_String_Loop_3_-_128_BPM_Asharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_House_String_Loop_3_-_128_BPM_Asharp_Min.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_Scarlet_String_Loop_11_-_128_BPM_Gsharp_Min.wav",
+      "name": "Cymatics_-_Scarlet_String_Loop_11_-_128_BPM_Gsharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_Scarlet_String_Loop_11_-_128_BPM_Gsharp_Min.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_String_Loop_17_-_128_BPM_Emin.wav",
+      "name": "Cymatics_-_String_Loop_17_-_128_BPM_Emin.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_String_Loop_17_-_128_BPM_Emin.wav"
+    },
+    {
+      "path": "/samples/Instruments_-_Loops/String_Loops/Cymatics_-_String_Loop_20_-_128_BPM_Emin.wav",
+      "name": "Cymatics_-_String_Loop_20_-_128_BPM_Emin.wav",
+      "category": "loop",
+      "relativePath": "Instruments_-_Loops/String_Loops/Cymatics_-_String_Loop_20_-_128_BPM_Emin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_12_-_128_BPM_Dmin.wav",
+      "name": "Cymatics_-_Arp_Loop_12_-_128_BPM_Dmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_12_-_128_BPM_Dmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_13_-_128_BPM_Dmin.wav",
+      "name": "Cymatics_-_Arp_Loop_13_-_128_BPM_Dmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_13_-_128_BPM_Dmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_32_-_128_BPM_Emin.wav",
+      "name": "Cymatics_-_Arp_Loop_32_-_128_BPM_Emin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_Arp_Loop_32_-_128_BPM_Emin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_House_Arp_2_-_128_BPM_E_Min.wav",
+      "name": "Cymatics_-_House_Arp_2_-_128_BPM_E_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_House_Arp_2_-_128_BPM_E_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Arp_Loops/Cymatics_-_House_Arp_4_-_128_BPM_Gsharp_Min.wav",
+      "name": "Cymatics_-_House_Arp_4_-_128_BPM_Gsharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Arp_Loops/Cymatics_-_House_Arp_4_-_128_BPM_Gsharp_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_1_-_128_BPM_Csharp_Min.wav",
+      "name": "Cymatics_-_House_Chord_Loop_1_-_128_BPM_Csharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_1_-_128_BPM_Csharp_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_3_-_128_BPM_E_Min.wav",
+      "name": "Cymatics_-_House_Chord_Loop_3_-_128_BPM_E_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_3_-_128_BPM_E_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_4_-_128_BPM_G_Min.wav",
+      "name": "Cymatics_-_House_Chord_Loop_4_-_128_BPM_G_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_House_Chord_Loop_4_-_128_BPM_G_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_1_-_128_BPM_Cmin.wav",
+      "name": "Cymatics_-_Soft_Chord_Loop_1_-_128_BPM_Cmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_1_-_128_BPM_Cmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_42_-_128_BPM_Amin.wav",
+      "name": "Cymatics_-_Soft_Chord_Loop_42_-_128_BPM_Amin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_42_-_128_BPM_Amin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_6_-_128_BPM_Dmin.wav",
+      "name": "Cymatics_-_Soft_Chord_Loop_6_-_128_BPM_Dmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Soft_Chord_Loop_6_-_128_BPM_Dmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Titan_Chord_Loop_16_-_125_BPM_G_Min.wav",
+      "name": "Cymatics_-_Titan_Chord_Loop_16_-_125_BPM_G_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Titan_Chord_Loop_16_-_125_BPM_G_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Chord_Loops/Cymatics_-_Titan_Chord_Loop_19_-_128_BPM_F_Min.wav",
+      "name": "Cymatics_-_Titan_Chord_Loop_19_-_128_BPM_F_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Chord_Loops/Cymatics_-_Titan_Chord_Loop_19_-_128_BPM_F_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_11_-_128_BPM_F.wav",
+      "name": "Cymatics_-_Bass_House_Loop_11_-_128_BPM_F.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_11_-_128_BPM_F.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_6_-_128_BPM_E.wav",
+      "name": "Cymatics_-_Bass_House_Loop_6_-_128_BPM_E.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_6_-_128_BPM_E.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_9_-_128_BPM_E.wav",
+      "name": "Cymatics_-_Bass_House_Loop_9_-_128_BPM_E.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Bass_House_Loop_9_-_128_BPM_E.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Future_House_Loop_14_-_124_BPM_Fmin.wav",
+      "name": "Cymatics_-_Future_House_Loop_14_-_124_BPM_Fmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Future_House_Loop_14_-_124_BPM_Fmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_Future_House_Loop_3_-_128_BPM_Dmin.wav",
+      "name": "Cymatics_-_Future_House_Loop_3_-_128_BPM_Dmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_Future_House_Loop_3_-_128_BPM_Dmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_G_House_Drop_Loop_15_-_128_BPM_F_Min.wav",
+      "name": "Cymatics_-_G_House_Drop_Loop_15_-_128_BPM_F_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_G_House_Drop_Loop_15_-_128_BPM_F_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_G_House_Drop_Loop_1_-_124_BPM_Dsharp_Min.wav",
+      "name": "Cymatics_-_G_House_Drop_Loop_1_-_124_BPM_Dsharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_G_House_Drop_Loop_1_-_124_BPM_Dsharp_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_1_-_Bass_House_-_128_BPM_D_Min.wav",
+      "name": "Cymatics_-_House_Drop_Loop_1_-_Bass_House_-_128_BPM_D_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_1_-_Bass_House_-_128_BPM_D_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_4_-_Future_House_-_125_BPM_E_Min.wav",
+      "name": "Cymatics_-_House_Drop_Loop_4_-_Future_House_-_125_BPM_E_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_4_-_Future_House_-_125_BPM_E_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_5_-_Future_House_-_125_BPM_G_Min.wav",
+      "name": "Cymatics_-_House_Drop_Loop_5_-_Future_House_-_125_BPM_G_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Drop_Loops/Cymatics_-_House_Drop_Loop_5_-_Future_House_-_125_BPM_G_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_House_Drop_Loop_6_-_Progressive_House_-_128_BPM_C_Min.wav",
+      "name": "Cymatics_-_House_Drop_Loop_6_-_Progressive_House_-_128_BPM_C_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_House_Drop_Loop_6_-_Progressive_House_-_128_BPM_C_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_House_Drop_Loop_7_-_Progressive_House_-_128_BPM_A_Min.wav",
+      "name": "Cymatics_-_House_Drop_Loop_7_-_Progressive_House_-_128_BPM_A_Min.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_House_Drop_Loop_7_-_Progressive_House_-_128_BPM_A_Min.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_15_-_128_BPM_Dsharpmin.wav",
+      "name": "Cymatics_-_Super_Saw_Loop_15_-_128_BPM_Dsharpmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_15_-_128_BPM_Dsharpmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_30_-_128_BPM_Fmin.wav",
+      "name": "Cymatics_-_Super_Saw_Loop_30_-_128_BPM_Fmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_30_-_128_BPM_Fmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_35_-_128_BPM_Fsharpmin.wav",
+      "name": "Cymatics_-_Super_Saw_Loop_35_-_128_BPM_Fsharpmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_35_-_128_BPM_Fsharpmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_40_-_128_BPM_Gmin.wav",
+      "name": "Cymatics_-_Super_Saw_Loop_40_-_128_BPM_Gmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_40_-_128_BPM_Gmin.wav"
+    },
+    {
+      "path": "/samples/Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_8_-_128_BPM_Csharpmin.wav",
+      "name": "Cymatics_-_Super_Saw_Loop_8_-_128_BPM_Csharpmin.wav",
+      "category": "loop",
+      "relativePath": "Synths_-_Loops/Supersaw_Loops/Cymatics_-_Super_Saw_Loop_8_-_128_BPM_Csharpmin.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_3_-_128_BPM_F_Min.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_3_-_128_BPM_F_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_3_-_128_BPM_F_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_4_-_128_BPM_B_Maj.wav",
+      "name": "Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_4_-_128_BPM_B_Maj.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Master_Collection_Vol_2_Vocal_Arp_4_-_128_BPM_B_Maj.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_13_-_128_BPM_G_Min.wav",
+      "name": "Cymatics_-_Prometheus_Vocal_Arp_13_-_128_BPM_G_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_13_-_128_BPM_G_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_16_-_128_BPM_Asharp_Min.wav",
+      "name": "Cymatics_-_Prometheus_Vocal_Arp_16_-_128_BPM_Asharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_16_-_128_BPM_Asharp_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_18_-_128_BPM_B_Min.wav",
+      "name": "Cymatics_-_Prometheus_Vocal_Arp_18_-_128_BPM_B_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Arp_Loops/Cymatics_-_Prometheus_Vocal_Arp_18_-_128_BPM_B_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_House_Vocal_Loop_1_-_128_BPM_E_Min.wav",
+      "name": "Cymatics_-_House_Vocal_Loop_1_-_128_BPM_E_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Loops/Cymatics_-_House_Vocal_Loop_1_-_128_BPM_E_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_House_Vocal_Loop_4_-_128_BPM_Asharp_Min.wav",
+      "name": "Cymatics_-_House_Vocal_Loop_4_-_128_BPM_Asharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Loops/Cymatics_-_House_Vocal_Loop_4_-_128_BPM_Asharp_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_Prometheus_Vocal_Loop_20_-_128_BPM_E_Min.wav",
+      "name": "Cymatics_-_Prometheus_Vocal_Loop_20_-_128_BPM_E_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Loops/Cymatics_-_Prometheus_Vocal_Loop_20_-_128_BPM_E_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_Prometheus_Vocal_Loop_21_-_128_BPM_G_Min.wav",
+      "name": "Cymatics_-_Prometheus_Vocal_Loop_21_-_128_BPM_G_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Loops/Cymatics_-_Prometheus_Vocal_Loop_21_-_128_BPM_G_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Loops/Cymatics_-_Vocal_Loop_12_-_128_Fsharpm.wav",
+      "name": "Cymatics_-_Vocal_Loop_12_-_128_Fsharpm.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocal_Loops/Cymatics_-_Vocal_Loop_12_-_128_Fsharpm.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_1_2_3_Spanish_-_128_BPM.wav",
+      "name": "Cymatics_-_1_2_3_Spanish_-_128_BPM.wav",
+      "category": "other",
+      "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_1_2_3_Spanish_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_G_House_Vocal_Shots_-_Who.wav",
+      "name": "Cymatics_-_G_House_Vocal_Shots_-_Who.wav",
+      "category": "other",
+      "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_G_House_Vocal_Shots_-_Who.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_Phrase_-_Deep_House.wav",
+      "name": "Cymatics_-_Phrase_-_Deep_House.wav",
+      "category": "other",
+      "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_Phrase_-_Deep_House.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_Predrop_Vocal_-_Hands_Up_-_128_BPM.wav",
+      "name": "Cymatics_-_Predrop_Vocal_-_Hands_Up_-_128_BPM.wav",
+      "category": "other",
+      "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_Predrop_Vocal_-_Hands_Up_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocal_Phrases/Cymatics_-_Predrop_Vocal_-_Its_A_House_Party_-_128_BPM.wav",
+      "name": "Cymatics_-_Predrop_Vocal_-_Its_A_House_Party_-_128_BPM.wav",
+      "category": "other",
+      "relativePath": "Vocals/Vocal_Phrases/Cymatics_-_Predrop_Vocal_-_Its_A_House_Party_-_128_BPM.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_House_Vocoder_Loop_2_-_128_BPM_G_Min.wav",
+      "name": "Cymatics_-_House_Vocoder_Loop_2_-_128_BPM_G_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_House_Vocoder_Loop_2_-_128_BPM_G_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_House_Vocoder_Loop_3_-_128_BPM_A_Min.wav",
+      "name": "Cymatics_-_House_Vocoder_Loop_3_-_128_BPM_A_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_House_Vocoder_Loop_3_-_128_BPM_A_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_13_-_128_BPM_Fsharp_Min.wav",
+      "name": "Cymatics_-_Prometheus_Vocoder_Loop_13_-_128_BPM_Fsharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_13_-_128_BPM_Fsharp_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_17_-_128_BPM_Gsharp_Min.wav",
+      "name": "Cymatics_-_Prometheus_Vocoder_Loop_17_-_128_BPM_Gsharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_17_-_128_BPM_Gsharp_Min.wav"
+    },
+    {
+      "path": "/samples/Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_18_-_128_BPM_Gsharp_Min.wav",
+      "name": "Cymatics_-_Prometheus_Vocoder_Loop_18_-_128_BPM_Gsharp_Min.wav",
+      "category": "loop",
+      "relativePath": "Vocals/Vocoder_Loops/Cymatics_-_Prometheus_Vocoder_Loop_18_-_128_BPM_Gsharp_Min.wav"
+    }
+  ]
+}
