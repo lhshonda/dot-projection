@@ -175,7 +175,7 @@ const FaceHandTracker = () => {
       
       // Draw skeleton lines
       ctx.strokeStyle = handColor;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 5;
       ctx.globalAlpha = 0.5;
       
       connections.forEach(([i, j]) => {
@@ -207,7 +207,7 @@ const FaceHandTracker = () => {
         ctx.fill();
       });
       
-      ctx.shadowBlur = 0;
+      ctx.shadowBlur = 8;
     });
     
     return true;
@@ -240,7 +240,7 @@ const FaceHandTracker = () => {
       // Face detection
       if (faceModel && (trackingMode === 'face' || trackingMode === 'both')) {
         const facePredictions = await faceModel.estimateFaces(video, {
-          flipHorizontal: false,
+          flipHorizontal: true,
         });
 
         if (facePredictions && facePredictions.length > 0) {
@@ -251,7 +251,7 @@ const FaceHandTracker = () => {
       // Hand detection
       if (handModel && (trackingMode === 'hands' || trackingMode === 'both')) {
         const handPredictions = await handModel.estimateHands(video, {
-          flipHorizontal: false,
+          flipHorizontal: true,
         });
 
         if (handPredictions && handPredictions.length > 0) {
@@ -346,7 +346,7 @@ const FaceHandTracker = () => {
         fontWeight: '300',
         letterSpacing: '2px'
       }}>
-        Face & Hand Tracker
+
       </h1>
       
       {/* Status Bar */}
