@@ -1,8 +1,8 @@
 import React from 'react';
-import FaceDotsMesh from './FaceDotsMesh';
+import FaceHandTracker from './FaceHandTracker';
 
 function App() {
-  return <FaceDotsMesh />;
+  return <FaceHandTracker />;
 }
 
 export default App;
