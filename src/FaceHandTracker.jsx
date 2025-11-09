@@ -228,18 +228,18 @@ const FaceHandTracker = () => {
     // Map distance to subdivision level (poly count)
     // Small distance = low poly (tetrahedron/icosahedron)
     // Large distance = high poly sphere
-    const minDistance = 100;
-    const maxDistance = 500;
+    const minDistance = 8;
+    const maxDistance = 10;
     const normalizedDist = Math.max(0, Math.min(1, (distance - minDistance) / (maxDistance - minDistance)));
     
     // 0 subdivisions = 20 faces (icosahedron)
     // 1 subdivision = 80 faces
     // 2 subdivisions = 320 faces
     // 3 subdivisions = 1280 faces
-    const subdivisions = Math.floor(normalizedDist * 1);
+    const subdivisions = Math.floor(normalizedDist * 1.1);
     
-    const size = Math.max(3, distance * 0.25);
-    const rotation = performance.now() * 0.01;
+    const size = Math.max(3, distance * 0.3);
+    const rotation = performance.now() * 0.001;
     
     // Generate sphere with appropriate poly count
     const { vertices: vertices3D, faces } = generateSphereVertices(subdivisions);
