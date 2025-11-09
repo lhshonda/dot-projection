@@ -124,6 +124,17 @@
     ],
     "block-no-empty": true,
     "color-hex-length": "short",
-    "unit-allowed-list": ["em", "rem", "%", "s", "px", "deg", "vh", "vw", "fr", "ms"]
+    "unit-allowed-list": [
+      "em",
+      "rem",
+      "%",
+      "s",
+      "px",
+      "deg",
+      "vh",
+      "vw",
+      "fr",
+      "ms"
+    ]
   }
 }
