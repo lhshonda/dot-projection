@@ -12,13 +12,13 @@ const FaceHandTracker = () => {
   const [faceModel, setFaceModel] = useState(null);
   const [handModel, setHandModel] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isPinching, setIsPinching] = useState(true);
   const [error, setError] = useState(null);
   const [fps, setFps] = useState(0);
   const [status, setStatus] = useState('Initializing...');
-  const [trackingMode, setTrackingMode] = useState('face');
+  const [trackingMode, setTrackingMode] = useState('hands');
 
   const fpsRef = useRef({ frames: 0, lastTime: performance.now() });
+  const cubeStateRef = useRef({ visible: false, hand1: null, hand2: null });
 
   const loadModels = async () => {
     try {
@@ -50,7 +50,7 @@ const FaceHandTracker = () => {
         {
           runtime: 'mediapipe',
           solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands',
-          modelType: 'full',
+          modelType: 'lite',
           maxHands: 2,
         }
       );
@@ -105,9 +105,6 @@ const FaceHandTracker = () => {
     }
 
     const keypoints = predictions[0].keypoints;
-    const canvas = ctx.canvas;
-    // const centerX = canvas.width / 2;
-    // const centerY = canvas.height / 2;
     
     keypoints.forEach((point, index) => {
       const { x, y, z } = point;
@@ -118,17 +115,14 @@ const FaceHandTracker = () => {
       
       let color = '#ffffff';
       
-      
       ctx.globalAlpha = opacity;
       ctx.fillStyle = color;
-      // ctx.shadowBlur = 3;
       ctx.shadowColor = color;
       ctx.beginPath();
       ctx.arc(x, y, dotSize, 0, Math.PI * 2);
       ctx.fill();
     });
     
-    // ctx.shadowBlur = 0;
     ctx.globalAlpha = 1;
     
     return true;
@@ -139,61 +133,230 @@ const FaceHandTracker = () => {
     const thumb = keypoints[4];
     const pinky = keypoints[20];
     
-    // Distance between thumb and pinky
     const spread = Math.sqrt(
       Math.pow(thumb.x - pinky.x, 2) +
       Math.pow(thumb.y - pinky.y, 2)
     );
     
-    // Larger spread = closer to camera
-    return spread; // Use this as a depth proxy
+    return spread;
+  };
+
+  const checkPinch = (hand) => {
+    const keypoints = hand.keypoints;
+    const thumb = keypoints[4];
+    const index = keypoints[8];
+    
+    const distance = Math.sqrt(
+      Math.pow(thumb.x - index.x, 2) +
+      Math.pow(thumb.y - index.y, 2)
+    );
+    
+    const spread = estimateDepthFromSpread(hand);
+    
+    // Pinch detected if fingers are close and hand is in reasonable size range
+    return distance < 40 && spread > 100 && spread < 400;
+  };
+
+  const generateSphereVertices = (subdivisions) => {
+    // Start with icosahedron (20-sided die) vertices
+    const t = (1 + Math.sqrt(5)) / 2;
+    let vertices = [
+      [-1, t, 0], [1, t, 0], [-1, -t, 0], [1, -t, 0],
+      [0, -1, t], [0, 1, t], [0, -1, -t], [0, 1, -t],
+      [t, 0, -1], [t, 0, 1], [-t, 0, -1], [-t, 0, 1]
+    ];
+    
+    let faces = [
+      [0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11],
+      [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6], [7, 1, 8],
+      [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9],
+      [4, 9, 5], [2, 4, 11], [6, 2, 10], [8, 6, 7], [9, 8, 1]
+    ];
+    
+    // Subdivide faces to increase poly count
+    for (let sub = 0; sub < subdivisions; sub++) {
+      const newFaces = [];
+      faces.forEach(([a, b, c]) => {
+        const ab = vertices.length;
+        const bc = vertices.length + 1;
+        const ca = vertices.length + 2;
+        
+        // Midpoints
+        vertices.push([
+          (vertices[a][0] + vertices[b][0]) / 2,
+          (vertices[a][1] + vertices[b][1]) / 2,
+          (vertices[a][2] + vertices[b][2]) / 2
+        ]);
+        vertices.push([
+          (vertices[b][0] + vertices[c][0]) / 2,
+          (vertices[b][1] + vertices[c][1]) / 2,
+          (vertices[b][2] + vertices[c][2]) / 2
+        ]);
+        vertices.push([
+          (vertices[c][0] + vertices[a][0]) / 2,
+          (vertices[c][1] + vertices[a][1]) / 2,
+          (vertices[c][2] + vertices[a][2]) / 2
+        ]);
+        
+        // Create 4 new triangles
+        newFaces.push([a, ab, ca]);
+        newFaces.push([b, bc, ab]);
+        newFaces.push([c, ca, bc]);
+        newFaces.push([ab, bc, ca]);
+      });
+      faces = newFaces;
+    }
+    
+    // Normalize to sphere
+    vertices = vertices.map(([x, y, z]) => {
+      const len = Math.sqrt(x * x + y * y + z * z);
+      return [x / len, y / len, z / len];
+    });
+    
+    return { vertices, faces };
+  };
+
+  const draw3DShape = (ctx, point1, point2) => {
+    const centerX = (point1.x + point2.x) / 2;
+    const centerY = (point1.y + point2.y) / 2;
+    
+    const distance = Math.sqrt(
+      Math.pow(point2.x - point1.x, 2) +
+      Math.pow(point2.y - point1.y, 2)
+    );
+    
+    // Map distance to subdivision level (poly count)
+    // Small distance = low poly (tetrahedron/icosahedron)
+    // Large distance = high poly sphere
+    const minDistance = 8;
+    const maxDistance = 10;
+    const normalizedDist = Math.max(0, Math.min(1, (distance - minDistance) / (maxDistance - minDistance)));
+    
+    // 0 subdivisions = 20 faces (icosahedron)
+    // 1 subdivision = 80 faces
+    // 2 subdivisions = 320 faces
+    // 3 subdivisions = 1280 faces
+    const subdivisions = Math.floor(normalizedDist * 1.1);
+    
+    const size = Math.max(3, distance * 0.3);
+    const rotation = performance.now() * 0.001;
+    
+    // Generate sphere with appropriate poly count
+    const { vertices: vertices3D, faces } = generateSphereVertices(subdivisions);
+    
+    // Project to 2D with rotation
+    const vertices2D = vertices3D.map(([x, y, z]) => {
+      // Rotate around Y and X axes
+      const cosY = Math.cos(rotation);
+      const sinY = Math.sin(rotation);
+      const cosX = Math.cos(rotation * 0.7);
+      const sinX = Math.sin(rotation * 0.7);
+      
+      // Y-axis rotation
+      let rotX = x * cosY - z * sinY;
+      let rotZ = x * sinY + z * cosY;
+      let rotY = y;
+      
+      // X-axis rotation
+      const finalY = rotY * cosX - rotZ * sinX;
+      const finalZ = rotY * sinX + rotZ * cosX;
+      
+      // Isometric projection
+      const projX = centerX + rotX * size;
+      const projY = centerY + (finalY * 0.866 + finalZ * 0.5) * size;
+      
+      return { x: projX, y: projY, z: finalZ };
+    });
+    
+    // Calculate face depths for sorting
+    const faceDepths = faces.map(face => {
+      const avgZ = face.reduce((sum, i) => sum + vertices2D[i].z, 0) / face.length;
+      return { face, avgZ };
+    });
+    
+    // Sort back to front
+    faceDepths.sort((a, b) => a.avgZ - b.avgZ);
+    
+    // Color gradient based on poly count
+    const colorMix = normalizedDist;
+    const lowPolyColor = { r: 255, g: 100, b: 100 }; // Red for low poly
+    const highPolyColor = { r: 100, g: 200, b: 255 }; // Blue for high poly
+    
+    // Draw faces
+    ctx.globalAlpha = 0.4;
+    faceDepths.forEach(({ face, avgZ }) => {
+      ctx.beginPath();
+      ctx.moveTo(vertices2D[face[0]].x, vertices2D[face[0]].y);
+      face.forEach(i => {
+        ctx.lineTo(vertices2D[i].x, vertices2D[i].y);
+      });
+      ctx.closePath();
+      
+      // Gradient color based on poly level and depth
+      const r = Math.floor(lowPolyColor.r + (highPolyColor.r - lowPolyColor.r) * colorMix);
+      const g = Math.floor(lowPolyColor.g + (highPolyColor.g - lowPolyColor.g) * colorMix);
+      const b = Math.floor(lowPolyColor.b + (highPolyColor.b - lowPolyColor.b) * colorMix);
+      
+      // Lighting based on z-depth
+      const brightness = 0.5 + (avgZ + 1) * 0.25;
+      ctx.fillStyle = `rgb(${r * brightness}, ${g * brightness}, ${b * brightness})`;
+      ctx.fill();
+    });
+    
+    // Draw wireframe edges (only for low poly)
+    if (subdivisions <= 1) {
+      ctx.globalAlpha = 0.6;
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1.5;
+      
+      faceDepths.forEach(({ face }) => {
+        ctx.beginPath();
+        ctx.moveTo(vertices2D[face[0]].x, vertices2D[face[0]].y);
+        face.forEach(i => {
+          ctx.lineTo(vertices2D[i].x, vertices2D[i].y);
+        });
+        ctx.closePath();
+        ctx.stroke();
+      });
+    }
+    
+    ctx.globalAlpha = 1;
+    
+    // Draw poly count indicator
+    const polyCount = faces.length;
+    ctx.fillStyle = '#00ff88';
+    ctx.font = '14px monospace';
+    ctx.fillText(`${polyCount} faces`, centerX - 40, centerY - size - 20);
   };
 
   const drawHandDots = (predictions, ctx) => {
     if (!predictions || predictions.length === 0) {
+      cubeStateRef.current.visible = false;
       return false;
     }
 
+    const pinchData = [];
+
     predictions.forEach((hand, handIndex) => {
       const keypoints = hand.keypoints;
-
-      
-      // Define hand colors (different for left/right)
-      // const handColor = handIndex === 0 ? '#00ff88' : '#ff00ff';
-      const handColor = handIndex === 0 ? '#ffffff' : '#ffffff';
+      const handColor = '#ffffff';
       const fingerTipColor = handIndex === 0 ? '#00ffff' : '#ffff00';
-      
-      // Finger tip indices: Thumb=4, Index=8, Middle=12, Ring=16, Pinky=20
       const fingerTips = [4, 8, 12, 16, 20];
       
-
-      const fingertipPositions = fingerTips.map(index => ({
-        name: ['thumb', 'pointer', 'middle', 'ring', 'pinky'][fingerTips.indexOf(index)],
-        x: keypoints[index].x,
-        y: keypoints[index].y,
-        z: estimateDepthFromSpread(hand) || 0
-      }));
+      const isPinching = checkPinch(hand);
       
-      // Do your logic with fingertipPositions
-      // Example: Check if index finger and thumb are close (pinch gesture)
-      const distance3D = Math.sqrt(
-        Math.pow(fingertipPositions[0].x - fingertipPositions[1].x, 2) +
-        Math.pow(fingertipPositions[0].y - fingertipPositions[1].y, 2) +
-        Math.pow((fingertipPositions[0].z || 0) - (fingertipPositions[1].z || 0), 2) 
-      );
-
-      const distance = Math.sqrt(
-        Math.pow(fingertipPositions[0].x - fingertipPositions[1].x, 2) +
-        Math.pow(fingertipPositions[0].y - fingertipPositions[1].y, 2)
-      );
-
-      console.log(`pointer z: ${fingertipPositions[0].z}`);
-      
-      if (distance3D < 50 && (fingertipPositions[0].z > 150 && fingertipPositions[0].z < 520)) {
-        console.log('Pinch detected! (accounting for depth)');
+      if (isPinching) {
+        const thumb = keypoints[4];
+        const index = keypoints[8];
+        const pinchPoint = {
+          x: (thumb.x + index.x) / 2,
+          y: (thumb.y + index.y) / 2
+        };
+        pinchData.push({ handIndex, pinchPoint });
       }
+
       // Draw connections (skeleton)
-      const connections = [
+            const connections = [
         // Thumb
         [5, 1], [1, 2], [2, 3], [3, 4],
         // Index finger
@@ -208,10 +371,9 @@ const FaceHandTracker = () => {
         [5, 9], [9, 13], [13, 17], [0, 5], [0, 18]
       ];
       
-      // Draw skeleton lines
-      ctx.strokeStyle = handColor;
-      ctx.lineWidth = 20;
-      ctx.globalAlpha = 0.2;
+      ctx.strokeStyle = isPinching ? '#00ff00' : handColor;
+      ctx.lineWidth = isPinching ? 3 : 2;
+      ctx.globalAlpha = isPinching ? 0.4 : 0.2;
       
       connections.forEach(([i, j]) => {
         const point1 = keypoints[i];
@@ -228,27 +390,40 @@ const FaceHandTracker = () => {
       // Draw keypoints
       keypoints.forEach((point, index) => {
         const { x, y } = point;
-        
-        // Finger tips are larger and different color
         const isFingerTip = fingerTips.includes(index);
-        const dotSize = isFingerTip ? 5 : 3;
+        const dotSize = isFingerTip ? 6 : 3;
         const color = isFingerTip ? fingerTipColor : handColor;
-        // const color = handColor;
-
-        if (fingerTips[0].x == fingerTips[1].x && fingerTips[0].y == fingerTips[1].y){
-
-        }
         
         ctx.fillStyle = color;
-        // ctx.shadowBlur = isFingerTip ? 5 : 3;
-        // ctx.shadowColor = color;
         ctx.beginPath();
         ctx.arc(x, y, dotSize, 0, Math.PI * 2);
         ctx.fill();
       });
       
-      // ctx.shadowBlur = 8;
+      // Highlight pinch point
+      if (isPinching) {
+        const thumb = keypoints[4];
+        const index = keypoints[8];
+        const px = (thumb.x + index.x) / 2;
+        const py = (thumb.y + index.y) / 2;
+        
+        ctx.fillStyle = '#00ff00';
+        ctx.globalAlpha = 0.6;
+        ctx.beginPath();
+        ctx.arc(px, py, 10, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
     });
+    
+    // Check if both hands are pinching
+    if (pinchData.length === 2) {
+      cubeStateRef.current.visible = true;
+      cubeStateRef.current.hand1 = pinchData[0].pinchPoint;
+      cubeStateRef.current.hand2 = pinchData[1].pinchPoint;
+    } else {
+      cubeStateRef.current.visible = false;
+    }
     
     return true;
   };
@@ -270,7 +445,7 @@ const FaceHandTracker = () => {
 
     try {
       // Clear canvas
-      ctx.fillStyle = '#292222ff';
+      ctx.fillStyle = '#1a1a1a';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       let faceDetected = false;
@@ -300,15 +475,22 @@ const FaceHandTracker = () => {
         }
       }
 
+      // Draw 3D shape if both hands are pinching
+      if (cubeStateRef.current.visible && cubeStateRef.current.hand1 && cubeStateRef.current.hand2) {
+        draw3DShape(ctx, cubeStateRef.current.hand1, cubeStateRef.current.hand2);
+      }
+
       // Update status
       if (trackingMode === 'face') {
         setStatus(faceDetected ? '✓ Tracking face (468 points)' : '✗ No face detected');
       } else if (trackingMode === 'hands') {
-        setStatus(handsDetected ? `✓ Tracking ${handCount} hand(s) (21 points each)` : '✗ No hands detected');
+        const cubeStatus = cubeStateRef.current.visible ? ' | 🔮 Shape Active' : '';
+        setStatus(handsDetected ? `✓ Tracking ${handCount} hand(s)${cubeStatus}` : '✗ No hands detected');
       } else if (trackingMode === 'both') {
         const faceStatus = faceDetected ? 'Face ✓' : 'Face ✗';
         const handStatus = handsDetected ? `Hands ✓ (${handCount})` : 'Hands ✗';
-        setStatus(`${faceStatus} | ${handStatus}`);
+        const cubeStatus = cubeStateRef.current.visible ? ' | 🔮' : '';
+        setStatus(`${faceStatus} | ${handStatus}${cubeStatus}`);
       }
 
       // Show message if nothing detected
@@ -321,6 +503,9 @@ const FaceHandTracker = () => {
           ctx.fillText('Show your face to camera', canvas.width / 2, canvas.height / 2);
         } else if (trackingMode === 'hands') {
           ctx.fillText('Show your hands to camera', canvas.width / 2, canvas.height / 2);
+          ctx.font = '16px Arial';
+          ctx.fillText('Pinch both hands to create a 3D shape!', canvas.width / 2, canvas.height / 2 + 30);
+          ctx.fillText('Move hands apart to increase detail', canvas.width / 2, canvas.height / 2 + 50);
         } else {
           ctx.fillText('Show face and/or hands to camera', canvas.width / 2, canvas.height / 2);
         }
@@ -379,15 +564,7 @@ const FaceHandTracker = () => {
       padding: '20px',
       fontFamily: 'Arial, sans-serif'
     }}>
-      <h1 style={{ 
-        color: '#ffffff', 
-        marginBottom: '20px',
-        fontSize: '32px',
-        fontWeight: '300',
-        letterSpacing: '2px'
-      }}>
-
-      </h1>
+      
       
       {/* Status Bar */}
       <div style={{ 
@@ -525,28 +702,30 @@ const FaceHandTracker = () => {
         maxWidth: '600px',
         lineHeight: '1.6'
       }}>
-        <div style={{ display: 'flex', gap: '40px', justifyContent: 'center', marginBottom: '15px' }}>
-          <div>
-            <strong style={{ color: '#4CAF50' }}>Face Mode:</strong>
-            <div style={{ fontSize: '12px', marginTop: '5px' }}>
-              468 facial landmarks
-              <br />
-              <span style={{ color: '#ff6b6b' }}>Red</span> = Lips | 
-              <span style={{ color: '#4ecdc4' }}> Cyan</span> = Eyes | 
-              <span style={{ color: '#ffe66d' }}> Yellow</span> = Eyebrows
-            </div>
-          </div>
-          <div>
-            <strong style={{ color: '#00ff88' }}>Hand Mode:</strong>
-            <div style={{ fontSize: '12px', marginTop: '5px' }}>
-              21 landmarks per hand (max 2)
-              <br />
-              <span style={{ color: '#00ffff' }}>Cyan</span> / <span style={{ color: '#ffff00' }}>Yellow</span> = Finger tips
-            </div>
+        <div style={{ 
+          backgroundColor: '#1a1a1a',
+          padding: '20px',
+          borderRadius: '12px',
+          marginBottom: '15px',
+          border: '2px solid #333'
+        }}>
+          <strong style={{ color: '#00ff88', fontSize: '16px' }}>🔮 How to use:</strong>
+          <div style={{ fontSize: '13px', marginTop: '10px', color: '#aaa' }}>
+            1. Show both hands to the camera
+            <br />
+            2. Make a pinch gesture with <strong>both hands</strong> (thumb + index finger)
+            <br />
+            3. A low-poly 3D shape will appear!
+            <br />
+            4. <strong>Move your hands apart</strong> to increase detail and poly count
+            <br />
+            5. Watch it morph from 20 faces → 1280+ faces
+            <br />
+            <span style={{ color: '#ff6464' }}>Red = Low poly</span> • <span style={{ color: '#64c8ff' }}>Blue = High poly</span>
           </div>
         </div>
         <p style={{ fontSize: '12px', color: '#555' }}>
-          Using MediaPipe Face Mesh + MediaPipe Hands with WebGL backend
+          Using MediaPipe Hands with WebGL backend
         </p>
       </div>
 
