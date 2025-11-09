@@ -79,6 +79,189 @@ const FaceHandTracker = () => {
     }
   };
 
+  const generateSphereVertices = (subdivisions) => {
+    // Start with icosahedron (20-sided die) vertices
+    const t = (1 + Math.sqrt(5)) / 2;
+    let vertices = [
+      [-1, t, 0], [1, t, 0], [-1, -t, 0], [1, -t, 0],
+      [0, -1, t], [0, 1, t], [0, -1, -t], [0, 1, -t],
+      [t, 0, -1], [t, 0, 1], [-t, 0, -1], [-t, 0, 1]
+    ];
+    
+    let faces = [
+      [0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11],
+      [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6], [7, 1, 8],
+      [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9],
+      [4, 9, 5], [2, 4, 11], [6, 2, 10], [8, 6, 7], [9, 8, 1]
+    ];
+    
+    // Subdivide faces to increase poly count
+    for (let sub = 0; sub < subdivisions; sub++) {
+      const newFaces = [];
+      faces.forEach(([a, b, c]) => {
+        const ab = vertices.length;
+        const bc = vertices.length + 1;
+        const ca = vertices.length + 2;
+        
+        // Midpoints
+        vertices.push([
+          (vertices[a][0] + vertices[b][0]) / 2,
+          (vertices[a][1] + vertices[b][1]) / 2,
+          (vertices[a][2] + vertices[b][2]) / 2
+        ]);
+        vertices.push([
+          (vertices[b][0] + vertices[c][0]) / 2,
+          (vertices[b][1] + vertices[c][1]) / 2,
+          (vertices[b][2] + vertices[c][2]) / 2
+        ]);
+        vertices.push([
+          (vertices[c][0] + vertices[a][0]) / 2,
+          (vertices[c][1] + vertices[a][1]) / 2,
+          (vertices[c][2] + vertices[a][2]) / 2
+        ]);
+        
+        // Create 4 new triangles
+        newFaces.push([a, ab, ca]);
+        newFaces.push([b, bc, ab]);
+        newFaces.push([c, ca, bc]);
+        newFaces.push([ab, bc, ca]);
+      });
+      faces = newFaces;
+    }
+    
+    // Normalize to sphere
+    vertices = vertices.map(([x, y, z]) => {
+      const len = Math.sqrt(x * x + y * y + z * z);
+      return [x / len, y / len, z / len];
+    });
+    
+    return { vertices, faces };
+  };
+
+    const checkPinch = (hand) => {
+      const keypoints = hand.keypoints;
+      const thumb = keypoints[4];
+      const index = keypoints[8];
+      
+      const distance = Math.sqrt(
+        Math.pow(thumb.x - index.x, 2) +
+        Math.pow(thumb.y - index.y, 2)
+    );
+
+
+  const draw3DShape = (ctx, point1, point2) => {
+    const centerX = (point1.x + point2.x) / 2;
+    const centerY = (point1.y + point2.y) / 2;
+    
+    const distance = Math.sqrt(
+      Math.pow(point2.x - point1.x, 2) +
+      Math.pow(point2.y - point1.y, 2)
+    );
+    
+    // Map distance to subdivision level (poly count)
+    // Small distance = low poly (tetrahedron/icosahedron)
+    // Large distance = high poly sphere
+    const minDistance = 100;
+    const maxDistance = 500;
+    const normalizedDist = Math.max(0, Math.min(1, (distance - minDistance) / (maxDistance - minDistance)));
+    
+    // 0 subdivisions = 20 faces (icosahedron)
+    // 1 subdivision = 80 faces
+    // 2 subdivisions = 320 faces
+    // 3 subdivisions = 1280 faces
+    const subdivisions = Math.floor(normalizedDist * 1);
+    
+    const size = Math.max(3, distance * 0.25);
+    const rotation = performance.now() * 0.01;
+    
+    // Generate sphere with appropriate poly count
+    const { vertices: vertices3D, faces } = generateSphereVertices(subdivisions);
+    
+    // Project to 2D with rotation
+    const vertices2D = vertices3D.map(([x, y, z]) => {
+      // Rotate around Y and X axes
+      const cosY = Math.cos(rotation);
+      const sinY = Math.sin(rotation);
+      const cosX = Math.cos(rotation * 0.7);
+      const sinX = Math.sin(rotation * 0.7);
+      
+      // Y-axis rotation
+      let rotX = x * cosY - z * sinY;
+      let rotZ = x * sinY + z * cosY;
+      let rotY = y;
+      
+      // X-axis rotation
+      const finalY = rotY * cosX - rotZ * sinX;
+      const finalZ = rotY * sinX + rotZ * cosX;
+      
+      // Isometric projection
+      const projX = centerX + rotX * size;
+      const projY = centerY + (finalY * 0.866 + finalZ * 0.5) * size;
+      
+      return { x: projX, y: projY, z: finalZ };
+    });
+    
+    // Calculate face depths for sorting
+    const faceDepths = faces.map(face => {
+      const avgZ = face.reduce((sum, i) => sum + vertices2D[i].z, 0) / face.length;
+      return { face, avgZ };
+    });
+    
+    // Sort back to front
+    faceDepths.sort((a, b) => a.avgZ - b.avgZ);
+    
+    // Color gradient based on poly count
+    const colorMix = normalizedDist;
+    const lowPolyColor = { r: 255, g: 100, b: 100 }; // Red for low poly
+    const highPolyColor = { r: 100, g: 200, b: 255 }; // Blue for high poly
+    
+    // Draw faces
+    ctx.globalAlpha = 0.4;
+    faceDepths.forEach(({ face, avgZ }) => {
+      ctx.beginPath();
+      ctx.moveTo(vertices2D[face[0]].x, vertices2D[face[0]].y);
+      face.forEach(i => {
+        ctx.lineTo(vertices2D[i].x, vertices2D[i].y);
+      });
+      ctx.closePath();
+      
+      // Gradient color based on poly level and depth
+      const r = Math.floor(lowPolyColor.r + (highPolyColor.r - lowPolyColor.r) * colorMix);
+      const g = Math.floor(lowPolyColor.g + (highPolyColor.g - lowPolyColor.g) * colorMix);
+      const b = Math.floor(lowPolyColor.b + (highPolyColor.b - lowPolyColor.b) * colorMix);
+      
+      // Lighting based on z-depth
+      const brightness = 0.5 + (avgZ + 1) * 0.25;
+      ctx.fillStyle = `rgb(${r * brightness}, ${g * brightness}, ${b * brightness})`;
+      ctx.fill();
+    });
+    
+    // Draw wireframe edges (only for low poly)
+    if (subdivisions <= 1) {
+      ctx.globalAlpha = 0.6;
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1.5;
+      
+      faceDepths.forEach(({ face }) => {
+        ctx.beginPath();
+        ctx.moveTo(vertices2D[face[0]].x, vertices2D[face[0]].y);
+        face.forEach(i => {
+          ctx.lineTo(vertices2D[i].x, vertices2D[i].y);
+        });
+        ctx.closePath();
+        ctx.stroke();
+      });
+    }
+    
+    ctx.globalAlpha = 1;
+    
+    // Draw poly count indicator
+    const polyCount = faces.length;
+    ctx.fillStyle = '#00ff88';
+    ctx.font = '14px monospace';
+    ctx.fillText(`${polyCount} faces`, centerX - 40, centerY - size - 20);
+  };
+
   const startCamera = async () => {
     try {
       setStatus('Starting camera...');
@@ -134,9 +317,7 @@ const FaceHandTracker = () => {
     const keypoints = predictions[0].keypoints;
 
     // Batch draw for performance
-    ctx.globalAlpha = 0.9;
-    ctx.fillStyle = '#ffffff';
-    ctx.beginPath();
+
 
     for (let i = 0; i < keypoints.length; i++) {
       const { x, y, z } = scale(keypoints[i]);
@@ -154,15 +335,41 @@ const FaceHandTracker = () => {
   };
 
   const CONNECTIONS = [
+    //thumb
     [5,1],[1,2],[2,3],[3,4],
+    //index
     [0,5],[5,6],[6,7],[7,8],
+    //middle
     [0,9],[9,10],[10,11],[11,12],
+    //ring
     [0,13],[13,14],[14,15],[15,16],
+    //pinky
     [0,17],[17,18],[18,19],[19,20],
+    //palm
     [5,9],[9,13],[13,17],[0,5],[0,17]
   ];
 
-  const FINGERTIPS = new Set([4,8,12,16,20]);
+  const fingerTips = new Set([4,8,12,16,20]);
+
+  
+
+
+  const isPinching = checkPinch(hand);
+      
+  if (isPinching) {
+    const thumb = keypoints[4];
+    const index = keypoints[8];
+    const pinchPoint = {
+      x: (thumb.x + index.x) / 2,
+      y: (thumb.y + index.y) / 2
+    };
+    pinchData.push({ handIndex, pinchPoint });
+  }
+
+
+  ctx.strokeStyle = isPinching ? '#00ff00' : handColor;
+  ctx.lineWidth = isPinching ? 3 : 2;
+  ctx.globalAlpha = isPinching ? 0.4 : 0.2;
   
 
   const drawHandDots = (predictions, ctx) => {
@@ -196,7 +403,7 @@ const FaceHandTracker = () => {
       ctx.fillStyle = '#ffffff';
       ctx.beginPath();
       for (let i = 0; i < kps.length; i++) {
-        if (FINGERTIPS.has(i)) continue;
+        if (fingerTips.has(i)) continue;
         const { x, y } = kps[i];
         const r = 3;
         ctx.moveTo(x + r, y);
@@ -208,7 +415,7 @@ const FaceHandTracker = () => {
       ctx.fillStyle = tipColor;
       ctx.beginPath();
       for (let i = 0; i < kps.length; i++) {
-        if (!FINGERTIPS.has(i)) continue;
+        if (!fingerTips.has(i)) continue;
         const { x, y } = kps[i];
         const r = 5;
         ctx.moveTo(x + r, y);
@@ -461,7 +668,7 @@ const FaceHandTracker = () => {
 
               fontSize: '12px',
               fontWeight: '500',
-              transition: 'all 0.2s',
+            
             }}
           >
             {mode.charAt(0).toUpperCase() + mode.slice(1)}
