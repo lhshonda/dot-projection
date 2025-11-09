@@ -47,8 +47,7 @@ const FaceHandTracker = () => {
       console.log('Face mesh loaded!');
       setFaceModel(face);
       
-      // Load Hand Tracking
-      setStatus('Loading hand tracking model...');
+      
       const hand = await handPoseDetection.createDetector(
         handPoseDetection.SupportedModels.MediaPipeHands,
         {
@@ -351,122 +350,52 @@ const FaceHandTracker = () => {
       minHeight: '100vh',
       backgroundColor: '#0a0a0a',
       padding: '20px',
-      fontFamily: 'Arial, sans-serif'
+      fontFamily: 'Inter, sans-serif'
     }}>
-      <h1 style={{ 
-        color: '#ffffff', 
-        marginBottom: '20px',
-        fontSize: '32px',
-        fontWeight: '300',
-        letterSpacing: '2px'
-      }}>
-
-      </h1>
       
-      {/* Status Bar */}
-      <div style={{ 
-        marginBottom: '20px',
-        padding: '16px 32px',
-        backgroundColor: '#1a1a1a',
-        borderRadius: '12px',
-        border: `2px solid ${status.includes('✓') ? '#4CAF50' : status.includes('✗') ? '#ff4444' : '#888'}`,
-        display: 'flex',
-        gap: '30px',
-        alignItems: 'center',
-      }}>
-        <div style={{ 
-          color: status.includes('✓') ? '#4CAF50' : status.includes('✗') ? '#ff4444' : '#888',
-          fontWeight: 'bold',
-          fontSize: '16px'
-        }}>
-          {status}
-        </div>
-        <div style={{ 
-          color: '#888', 
-          fontSize: '14px',
-          borderLeft: '1px solid #333',
-          paddingLeft: '30px'
-        }}>
-          {fps} FPS
-        </div>
-        <div style={{ 
-          color: '#888', 
-          fontSize: '14px',
-          borderLeft: '1px solid #333',
-          paddingLeft: '30px'
-        }}>
-          Backend: {tf.getBackend ? tf.getBackend() : 'loading'}
-        </div>
-      </div>
+
+
+      
+      <div style={{position: 'absolute', top: '10px', right: '10px', color: '#ffffff', fontSize: '14px'}}>{fps} FPS</div>
 
       {/* Mode Selector */}
       <div style={{
         marginBottom: '20px',
         display: 'flex',
         gap: '10px',
-        backgroundColor: '#1a1a1a',
+        backgroundColor: '#ffffff0',
         padding: '8px',
         borderRadius: '8px'
       }}>
+
         {['face', 'hands', 'both'].map(mode => (
           <button
             key={mode}
             onClick={() => setTrackingMode(mode)}
             disabled={isLoading}
             style={{
+              position: 'relative',
               padding: '10px 20px',
-              backgroundColor: trackingMode === mode ? '#4CAF50' : '#333',
+              backgroundColor: '#ffffff12',
               color: '#fff',
               border: 'none',
-              borderRadius: '6px',
+              borderRadius: '0px',
               cursor: isLoading ? 'not-allowed' : 'pointer',
-              fontSize: '14px',
-              fontWeight: '500',
+              transition: 'all 0.2s',
+              top: '10px',
+              gap: '50px',
+              color: '#ffffff',
+              fontSize: '12px',
+              fontWeight: '200',
               transition: 'all 0.2s',
               opacity: isLoading ? 0.5 : 1
-            }}
-          >
+            }}>
             {mode.charAt(0).toUpperCase() + mode.slice(1)}
           </button>
         ))}
       </div>
 
-      {/* Loading State */}
-      {isLoading && (
-        <div style={{ 
-          color: '#ffffff', 
-          marginBottom: '20px',
-          fontSize: '16px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px'
-        }}>
-          <div style={{
-            width: '20px',
-            height: '20px',
-            border: '3px solid #333',
-            borderTop: '3px solid #4CAF50',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite'
-          }} />
-          Loading models... This may take 20-30 seconds
-        </div>
-      )}
-
-      {/* Error State */}
-      {error && (
-        <div style={{ 
-          color: '#ff4444', 
-          marginBottom: '20px',
-          padding: '16px',
-          border: '2px solid #ff4444',
-          borderRadius: '8px',
-          backgroundColor: '#1a0a0a',
-          maxWidth: '500px'
-        }}>
-          <strong>Error:</strong> {error}
-        </div>
-      )}
+    
 
       {/* Hidden Video Element */}
       <video
@@ -481,46 +410,13 @@ const FaceHandTracker = () => {
       <canvas
         ref={canvasRef}
         style={{
-          maxWidth: '90vw',
-          maxHeight: '70vh',
-          border: '2px solid #333',
-          borderRadius: '12px',
+          maxWidth: '100vw',
+          maxHeight: '100vh',
         }}
       />
 
-      {/* Info Panel */}
-      <div style={{ 
-        color: '#888', 
-        marginTop: '30px',
-        textAlign: 'center',
-        fontSize: '14px',
-        maxWidth: '600px',
-        lineHeight: '1.6'
-      }}>
-        <div style={{ display: 'flex', gap: '40px', justifyContent: 'center', marginBottom: '15px' }}>
-          <div>
-            <strong style={{ color: '#4CAF50' }}>Face Mode:</strong>
-            <div style={{ fontSize: '12px', marginTop: '5px' }}>
-              468 facial landmarks
-              <br />
-              <span style={{ color: '#ff6b6b' }}>Red</span> = Lips | 
-              <span style={{ color: '#4ecdc4' }}> Cyan</span> = Eyes | 
-              <span style={{ color: '#ffe66d' }}> Yellow</span> = Eyebrows
-            </div>
-          </div>
-          <div>
-            <strong style={{ color: '#00ff88' }}>Hand Mode:</strong>
-            <div style={{ fontSize: '12px', marginTop: '5px' }}>
-              21 landmarks per hand (max 2)
-              <br />
-              <span style={{ color: '#00ffff' }}>Cyan</span> / <span style={{ color: '#ffff00' }}>Yellow</span> = Finger tips
-            </div>
-          </div>
-        </div>
-        <p style={{ fontSize: '12px', color: '#555' }}>
-          Using MediaPipe Face Mesh + MediaPipe Hands with WebGL backend
-        </p>
-      </div>
+      
+        
 
       {/* CSS Animation */}
       <style>{`
