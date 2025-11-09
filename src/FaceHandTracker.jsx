@@ -10,6 +10,18 @@ const FaceHandTracker = () => {
   const animationRef = useRef(null);
   const procCanvasRef = useRef(null);
   const procCtxRef = useRef(null);
+  // Filters for face and hand points
+  const faceFiltersRef = useRef(null);     
+  const handFiltersRef = useRef({});
+  const ctxRef = useRef(null);
+
+
+  
+  // rVFC control
+  const frameCallbackRef = useRef(null);
+  const isRunningRef = useRef(false);
+  const lastInferTimeRef = useRef(0);
+  const targetFPS = 30;
 
   const toProcSize = { w: 320, h: 180 }; // processing resolution
 
@@ -141,6 +153,18 @@ const FaceHandTracker = () => {
     return true;
   };
 
+  const CONNECTIONS = [
+    [5,1],[1,2],[2,3],[3,4],
+    [0,5],[5,6],[6,7],[7,8],
+    [0,9],[9,10],[10,11],[11,12],
+    [0,13],[13,14],[14,15],[15,16],
+    [0,17],[17,18],[18,19],[19,20],
+    [5,9],[9,13],[13,17],[0,5],[0,17]
+  ];
+
+  const FINGERTIPS = new Set([4,8,12,16,20]);
+  
+
   const drawHandDots = (predictions, ctx) => {
     if (!predictions || predictions.length === 0) return false;
 
@@ -151,41 +175,10 @@ const FaceHandTracker = () => {
       z: p.z,
     });
 
-    // Hoist these outside the component for best perf if you like
-    const CONNECTIONS = [
-      [5, 1],
-      [1, 2],
-      [2, 3],
-      [3, 4],
-      [0, 5],
-      [5, 6],
-      [6, 7],
-      [7, 8],
-      [0, 9],
-      [9, 10],
-      [10, 11],
-      [11, 12],
-      [0, 13],
-      [13, 14],
-      [14, 15],
-      [15, 16],
-      [0, 17],
-      [17, 18],
-      [18, 19],
-      [19, 20],
-      [5, 9],
-      [9, 13],
-      [13, 17],
-      [0, 5],
-      [0, 17],
-    ];
-    const FINGERTIPS = new Set([4, 8, 12, 16, 20]);
-
     for (let h = 0; h < predictions.length; h++) {
       // scale once
       const kps = predictions[h].keypoints.map(scale);
 
-      // --- skeleton: single stroke ---
       ctx.globalAlpha = 0.25;
       ctx.lineWidth = 2;
       ctx.strokeStyle = '#ffffff';
@@ -200,11 +193,10 @@ const FaceHandTracker = () => {
       ctx.stroke();
       ctx.globalAlpha = 1;
 
-      // --- points: normals in white (one fill) ---
       ctx.fillStyle = '#ffffff';
       ctx.beginPath();
       for (let i = 0; i < kps.length; i++) {
-        if (FINGERTIPS.has(i)) continue; // skip tips for this pass
+        if (FINGERTIPS.has(i)) continue;
         const { x, y } = kps[i];
         const r = 3;
         ctx.moveTo(x + r, y);
@@ -212,8 +204,6 @@ const FaceHandTracker = () => {
       }
       ctx.fill();
 
-      // --- fingertips: colored (one fill) ---
-      // If you want different colors per hand, switch on `h`
       const tipColor = h === 0 ? '#00ffff' : '#ffff00';
       ctx.fillStyle = tipColor;
       ctx.beginPath();
@@ -230,6 +220,62 @@ const FaceHandTracker = () => {
     return true;
   };
 
+    // one euro filter
+  class OneEuroFilter {
+    constructor({ minCutoff = 1.0, beta = 0.02, dCutoff = 1.0 } = {}) {
+      this.minCutoff = minCutoff;
+      this.beta = beta;
+      this.dCutoff = dCutoff;
+      this.xPrev = null;
+      this.dxPrev = 0;
+      this.tPrev = null;
+    }
+    static alpha(cutoff, dt) {
+      const tau = 1.0 / (2 * Math.PI * cutoff);
+      return 1.0 / (1.0 + tau / dt);
+    }
+    filter(x, timestamp) {
+      if (this.tPrev == null) {
+        this.tPrev = timestamp;
+        this.xPrev = x;
+        return x;
+      }
+      const dt = Math.max(1e-3, (timestamp - this.tPrev) / 1000.0);
+      const dx = (x - this.xPrev) / dt;
+      const ad = OneEuroFilter.alpha(this.dCutoff, dt);
+      const dxHat = ad * dx + (1 - ad) * this.dxPrev;
+      const cutoff = this.minCutoff + this.beta * Math.abs(dxHat);
+      const a = OneEuroFilter.alpha(cutoff, dt);
+      const xHat = a * x + (1 - a) * this.xPrev;
+      this.tPrev = timestamp;
+      this.xPrev = xHat;
+      this.dxPrev = dxHat;
+      return xHat;
+    }
+  }
+
+  function ensureFilterPairs(filterArrRef, length, params) {
+    if (!filterArrRef.current || filterArrRef.current.length !== length) {
+      const arr = new Array(length);
+      for (let i = 0; i < length; i++) {
+        arr[i] = [new OneEuroFilter(params), new OneEuroFilter(params)];
+      }
+      filterArrRef.current = arr;
+    }
+  }
+
+  function ensureHandFilters(handFiltersRef, handIndex, length, params) {
+    if (!handFiltersRef.current[handIndex] || handFiltersRef.current[handIndex].length !== length) {
+      const arr = new Array(length);
+      for (let i = 0; i < length; i++) {
+        arr[i] = [new OneEuroFilter(params), new OneEuroFilter(params)];
+      }
+      handFiltersRef.current[handIndex] = arr;
+    }
+  }
+
+  const euroParams = { minCutoff: 1.2, beta: 0.02, dCutoff: 1.5 };
+
   const detect = async () => {
     if (
       !videoRef.current ||
@@ -242,7 +288,10 @@ const FaceHandTracker = () => {
 
     const video = videoRef.current;
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d', { alpha: false, desynchronized: true });
+    if (!ctxRef.current) {
+      ctxRef.current = canvas.getContext('2d', { alpha: false, desynchronized: true });
+    }
+    const ctx = ctxRef.current;
 
     // draw video into the small processing canvas
     const pctx = procCtxRef.current;
@@ -260,66 +309,63 @@ const FaceHandTracker = () => {
     }
 
     try {
-      // Clear canvas
+      const now = performance.now();
+      // clear canvas
       ctx.fillStyle = '#0a0a0a';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       let faceDetected = false;
       let handsDetected = false;
       let handCount = 0;
-
-      // Face detection
+      
       if (faceModel && (trackingMode === 'face' || trackingMode === 'both')) {
-        const facePredictions = await faceModel.estimateFaces(pcvs, {
-          flipHorizontal: true,
-        });
-
+        const facePredictions = await faceModel.estimateFaces(pcvs, { flipHorizontal: true });
         if (facePredictions && facePredictions.length > 0) {
-          faceDetected = drawFaceDots(facePredictions, ctx);
+          const raw = facePredictions[0].keypoints;
+
+          ensureFilterPairs(faceFiltersRef, raw.length, euroParams);
+
+          const filtered = raw.map((pt, i) => {
+            const [fx, fy] = faceFiltersRef.current[i];
+            return {
+              x: fx.filter(pt.x, performance.now()),
+              y: fy.filter(pt.y, performance.now()),
+              z: pt.z,
+              score: pt.score,
+            };
+          });
+
+          faceDetected = drawFaceDots([{ keypoints: filtered }], ctx);
         }
       }
 
-      // Hand detection
+
       if (handModel && (trackingMode === 'hands' || trackingMode === 'both')) {
-        const handPredictions = await handModel.estimateHands(pcvs, {
-          flipHorizontal: true,
-        });
-
+        const handPredictions = await handModel.estimateHands(pcvs, { flipHorizontal: true });
         if (handPredictions && handPredictions.length > 0) {
-          handsDetected = drawHandDots(handPredictions, ctx);
-          handCount = handPredictions.length;
+          const smoothed = handPredictions.map((hand, idx) => {
+            ensureHandFilters(handFiltersRef, idx, hand.keypoints.length, euroParams);
+            const filtered = hand.keypoints.map((pt, i) => {
+              const [fx, fy] = handFiltersRef.current[idx][i];
+              return {
+                x: fx.filter(pt.x, now),
+                y: fy.filter(pt.y, now),
+                z: pt.z,
+                score: pt.score,
+              };
+            });
+            return { ...hand, keypoints: filtered };
+          });
+
+          handsDetected = drawHandDots(smoothed, ctx);
+          handCount = smoothed.length;
         }
       }
 
-      // // Update status
-      // if (trackingMode === 'face') {
-      //   setStatus(faceDetected ? '✓ Tracking face (468 points)' : '✗ No face detected');
-      // } else if (trackingMode === 'hands') {
-      //   setStatus(handsDetected ? `✓ Tracking ${handCount} hand(s) (21 points each)` : '✗ No hands detected');
-      // } else if (trackingMode === 'both') {
-      //   const faceStatus = faceDetected ? 'Face ✓' : 'Face ✗';
-      //   const handStatus = handsDetected ? `Hands ✓ (${handCount})` : 'Hands ✗';
-      //   setStatus(`${faceStatus} | ${handStatus}`);
-      // }
 
-      // Show message if nothing detected
-      // if (!faceDetected && !handsDetected) {
-      //   ctx.fillStyle = '#ff4444';
-      //   ctx.font = '24px Arial';
-      //   ctx.textAlign = 'center';
 
-      //   if (trackingMode === 'face') {
-      //     ctx.fillText('Show your face to camera', canvas.width / 2, canvas.height / 2);
-      //   } else if (trackingMode === 'hands') {
-      //     ctx.fillText('Show your hands to camera', canvas.width / 2, canvas.height / 2);
-      //   } else {
-      //     ctx.fillText('Show face and/or hands to camera', canvas.width / 2, canvas.height / 2);
-      //   }
-      // }
-
-      // Calculate FPS
+      // calc fps
       fpsRef.current.frames++;
-      const now = performance.now();
       if (now >= fpsRef.current.lastTime + 1000) {
         setFps(
           Math.round(
@@ -346,13 +392,11 @@ const FaceHandTracker = () => {
     init();
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-      if (videoRef.current?.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach((track) => track.stop());
-      }
-    };
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      videoRef.current?.srcObject?.getTracks()?.forEach(t => t.stop());
+      faceModel?.dispose?.();
+      handModel?.dispose?.();
+    };    
   }, []);
 
   useEffect(() => {
@@ -380,8 +424,8 @@ const FaceHandTracker = () => {
           position: 'absolute',
           top: '10px',
           right: '10px',
-          color: '#ffffff',
-          fontSize: '14px',
+          color: '#ffffff30',
+          fontSize: '6px',
         }}
       >
         {fps} FPS
@@ -405,7 +449,7 @@ const FaceHandTracker = () => {
             disabled={isLoading}
             style={{
               position: 'relative',
-              padding: '10px 20px',
+              padding: '8px 16px',
               backgroundColor: '#ffffff12',
               color: '#fff',
               border: 'none',
@@ -416,7 +460,7 @@ const FaceHandTracker = () => {
               gap: '50px',
 
               fontSize: '12px',
-              fontWeight: '200',
+              fontWeight: '500',
               transition: 'all 0.2s',
             }}
           >
