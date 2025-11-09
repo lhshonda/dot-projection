@@ -8,27 +8,42 @@ const FaceHandTracker = () => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
+  const procCanvasRef = useRef(null);
+  const procCtxRef = useRef(null);
+  // Filters for face and hand points
+  const faceFiltersRef = useRef(null);     
+  const handFiltersRef = useRef({});
+  const ctxRef = useRef(null);
+
+
   
+  // rVFC control
+  const frameCallbackRef = useRef(null);
+  const isRunningRef = useRef(false);
+  const lastInferTimeRef = useRef(0);
+  const targetFPS = 30;
+
+  const toProcSize = { w: 320, h: 180 }; // processing resolution
+
   const [faceModel, setFaceModel] = useState(null);
   const [handModel, setHandModel] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [fps, setFps] = useState(0);
   const [status, setStatus] = useState('Initializing...');
-  const [trackingMode, setTrackingMode] = useState('hands');
+  const [trackingMode, setTrackingMode] = useState('face');
 
   const fpsRef = useRef({ frames: 0, lastTime: performance.now() });
-  const cubeStateRef = useRef({ visible: false, hand1: null, hand2: null });
 
   const loadModels = async () => {
     try {
       setStatus('Loading TensorFlow...');
-      
+
       await tf.setBackend('webgl');
       await tf.ready();
-      
+
       console.log('TensorFlow ready! Backend:', tf.getBackend());
-      
+
       // Load Face Mesh
       setStatus('Loading face mesh model...');
       const face = await faceLandmarksDetection.createDetector(
@@ -37,14 +52,12 @@ const FaceHandTracker = () => {
           runtime: 'mediapipe',
           solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh',
           maxFaces: 1,
-          refineLandmarks: true,
+          refineLandmarks: false,
         }
       );
       console.log('Face mesh loaded!');
       setFaceModel(face);
-      
-      // Load Hand Tracking
-      setStatus('Loading hand tracking model...');
+
       const hand = await handPoseDetection.createDetector(
         handPoseDetection.SupportedModels.MediaPipeHands,
         {
@@ -56,105 +69,14 @@ const FaceHandTracker = () => {
       );
       console.log('Hand tracking loaded!');
       setHandModel(hand);
-      
+
       setStatus('All models loaded!');
       setIsLoading(false);
-      
     } catch (err) {
       console.error('Model loading error:', err);
       setError(`Failed to load models: ${err.message}`);
       setIsLoading(false);
     }
-  };
-
-  const startCamera = async () => {
-    try {
-      setStatus('Starting camera...');
-      
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { 
-          width: { ideal: 1280 },
-          height: { ideal: 720 },
-          facingMode: 'user'
-        },
-        audio: false,
-      });
-      
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        
-        await new Promise((resolve) => {
-          videoRef.current.onloadedmetadata = () => {
-            videoRef.current.play();
-            console.log('Camera started!');
-            resolve();
-          };
-        });
-      }
-      
-      setStatus('Camera ready!');
-    } catch (err) {
-      console.error('Camera error:', err);
-      setError(`Camera access denied: ${err.message}`);
-    }
-  };
-
-  const drawFaceDots = (predictions, ctx) => {
-    if (!predictions || predictions.length === 0) {
-      return false;
-    }
-
-    const keypoints = predictions[0].keypoints;
-    
-    keypoints.forEach((point, index) => {
-      const { x, y, z } = point;
-      
-      const depth = z ? Math.max(0, Math.min(1, (-z + 50) / 100)) : 0.5;
-      const dotSize = 1.1 + depth * 0.2;
-      const opacity = 0.7 + depth * 0.3;
-      
-      let color = '#ffffff';
-      
-      ctx.globalAlpha = opacity;
-      ctx.fillStyle = color;
-      ctx.shadowColor = color;
-      ctx.beginPath();
-      ctx.arc(x, y, dotSize, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    
-    ctx.globalAlpha = 1;
-    
-    return true;
-  };
-
-  const estimateDepthFromSpread = (hand) => {
-    const keypoints = hand.keypoints;
-    const thumb = keypoints[4];
-    const pinky = keypoints[20];
-    
-    const spread = Math.sqrt(
-      Math.pow(thumb.x - pinky.x, 2) +
-      Math.pow(thumb.y - pinky.y, 2)
-    );
-    
-    return spread;
-  };
-
-  const checkPinch = (hand) => {
-    const keypoints = hand.keypoints;
-    const thumb = keypoints[4];
-    const index = keypoints[8];
-    
-    const distance = Math.sqrt(
-      Math.pow(thumb.x - index.x, 2) +
-      Math.pow(thumb.y - index.y, 2)
-    );
-    
-    const spread = estimateDepthFromSpread(hand);
-    
-    // Pinch detected if fingers are close and hand is in reasonable size range
-    return distance < 40 && spread > 100 && spread < 400;
   };
 
   const generateSphereVertices = (subdivisions) => {
@@ -215,6 +137,17 @@ const FaceHandTracker = () => {
     
     return { vertices, faces };
   };
+
+    const checkPinch = (hand) => {
+      const keypoints = hand.keypoints;
+      const thumb = keypoints[4];
+      const index = keypoints[8];
+      
+      const distance = Math.sqrt(
+        Math.pow(thumb.x - index.x, 2) +
+        Math.pow(thumb.y - index.y, 2)
+    );
+
 
   const draw3DShape = (ctx, point1, point2) => {
     const centerX = (point1.x + point2.x) / 2;
@@ -329,197 +262,326 @@ const FaceHandTracker = () => {
     ctx.fillText(`${polyCount} faces`, centerX - 40, centerY - size - 20);
   };
 
-  const drawHandDots = (predictions, ctx) => {
-    if (!predictions || predictions.length === 0) {
-      cubeStateRef.current.visible = false;
-      return false;
+  const startCamera = async () => {
+    try {
+      setStatus('Starting camera...');
+
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          width: { ideal: 640 },
+          height: { ideal: 360 },
+          frameRate: { ideal: 30, max: 30 },
+          facingMode: 'user',
+        },
+        audio: false,
+      });
+
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+
+        await new Promise((resolve) => {
+          videoRef.current.onloadedmetadata = () => {
+            videoRef.current.play();
+            console.log('Camera started!');
+            resolve();
+          };
+        });
+      }
+
+      setStatus('Camera ready!');
+
+      // Create smaller processing canvas for inference
+      if (!procCanvasRef.current) {
+        const c = document.createElement('canvas');
+        c.width = toProcSize.w;
+        c.height = toProcSize.h;
+        procCanvasRef.current = c;
+        procCtxRef.current = c.getContext('2d');
+      }
+    } catch (err) {
+      console.error('Camera error:', err);
+      setError(`Camera access denied: ${err.message}`);
     }
+  };
 
-    const pinchData = [];
+  const drawFaceDots = (predictions, ctx) => {
+    if (!predictions || predictions.length === 0) return false;
 
-    predictions.forEach((hand, handIndex) => {
-      const keypoints = hand.keypoints;
-      const handColor = '#ffffff';
-      const fingerTipColor = handIndex === 0 ? '#00ffff' : '#ffff00';
-      const fingerTips = [4, 8, 12, 16, 20];
-      
-      const isPinching = checkPinch(hand);
-      
-      if (isPinching) {
-        const thumb = keypoints[4];
-        const index = keypoints[8];
-        const pinchPoint = {
-          x: (thumb.x + index.x) / 2,
-          y: (thumb.y + index.y) / 2
-        };
-        pinchData.push({ handIndex, pinchPoint });
-      }
-
-      // Draw connections (skeleton)
-            const connections = [
-        // Thumb
-        [5, 1], [1, 2], [2, 3], [3, 4],
-        // Index finger
-        [0, 5], [5, 6], [6, 7], [7, 8],
-        // Middle finger
-        [0, 9], [9, 10], [10, 11], [11, 12],
-        // Ring finger
-        [0, 13], [13, 14], [14, 15], [15, 16],
-        // Pinky
-        [0, 17], [17, 18], [18, 19], [19, 20],
-        // Palm
-        [5, 9], [9, 13], [13, 17], [0, 5], [0, 18]
-      ];
-      
-      ctx.strokeStyle = isPinching ? '#00ff00' : handColor;
-      ctx.lineWidth = isPinching ? 3 : 2;
-      ctx.globalAlpha = isPinching ? 0.4 : 0.2;
-      
-      connections.forEach(([i, j]) => {
-        const point1 = keypoints[i];
-        const point2 = keypoints[j];
-        
-        ctx.beginPath();
-        ctx.moveTo(point1.x, point1.y);
-        ctx.lineTo(point2.x, point2.y);
-        ctx.stroke();
-      });
-      
-      ctx.globalAlpha = 1;
-      
-      // Draw keypoints
-      keypoints.forEach((point, index) => {
-        const { x, y } = point;
-        const isFingerTip = fingerTips.includes(index);
-        const dotSize = isFingerTip ? 6 : 3;
-        const color = isFingerTip ? fingerTipColor : handColor;
-        
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.arc(x, y, dotSize, 0, Math.PI * 2);
-        ctx.fill();
-      });
-      
-      // Highlight pinch point
-      if (isPinching) {
-        const thumb = keypoints[4];
-        const index = keypoints[8];
-        const px = (thumb.x + index.x) / 2;
-        const py = (thumb.y + index.y) / 2;
-        
-        ctx.fillStyle = '#00ff00';
-        ctx.globalAlpha = 0.6;
-        ctx.beginPath();
-        ctx.arc(px, py, 10, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      }
+    // scale from processing canvas → display canvas
+    const scale = (p) => ({
+      x: (p.x * ctx.canvas.width) / toProcSize.w,
+      y: (p.y * ctx.canvas.height) / toProcSize.h,
+      z: p.z,
     });
-    
-    // Check if both hands are pinching
-    if (pinchData.length === 2) {
-      cubeStateRef.current.visible = true;
-      cubeStateRef.current.hand1 = pinchData[0].pinchPoint;
-      cubeStateRef.current.hand2 = pinchData[1].pinchPoint;
-    } else {
-      cubeStateRef.current.visible = false;
+
+    const keypoints = predictions[0].keypoints;
+
+    // Batch draw for performance
+
+
+    for (let i = 0; i < keypoints.length; i++) {
+      const { x, y, z } = scale(keypoints[i]);
+      const depth = z ? Math.max(0, Math.min(1, (-z + 50) / 100)) : 0.5;
+      const r = 1.1 + depth * 0.2;
+
+      ctx.moveTo(x + r, y);
+      ctx.arc(x, y, r, 0, Math.PI * 2);
     }
-    
+
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
     return true;
   };
 
+  const CONNECTIONS = [
+    //thumb
+    [5,1],[1,2],[2,3],[3,4],
+    //index
+    [0,5],[5,6],[6,7],[7,8],
+    //middle
+    [0,9],[9,10],[10,11],[11,12],
+    //ring
+    [0,13],[13,14],[14,15],[15,16],
+    //pinky
+    [0,17],[17,18],[18,19],[19,20],
+    //palm
+    [5,9],[9,13],[13,17],[0,5],[0,17]
+  ];
+
+  const fingerTips = new Set([4,8,12,16,20]);
+
+  
+
+
+  const isPinching = checkPinch(hand);
+      
+  if (isPinching) {
+    const thumb = keypoints[4];
+    const index = keypoints[8];
+    const pinchPoint = {
+      x: (thumb.x + index.x) / 2,
+      y: (thumb.y + index.y) / 2
+    };
+    pinchData.push({ handIndex, pinchPoint });
+  }
+
+
+  ctx.strokeStyle = isPinching ? '#00ff00' : handColor;
+  ctx.lineWidth = isPinching ? 3 : 2;
+  ctx.globalAlpha = isPinching ? 0.4 : 0.2;
+  
+
+  const drawHandDots = (predictions, ctx) => {
+    if (!predictions || predictions.length === 0) return false;
+
+    // scale from processing canvas → display canvas
+    const scale = (p) => ({
+      x: (p.x * ctx.canvas.width) / toProcSize.w,
+      y: (p.y * ctx.canvas.height) / toProcSize.h,
+      z: p.z,
+    });
+
+    for (let h = 0; h < predictions.length; h++) {
+      // scale once
+      const kps = predictions[h].keypoints.map(scale);
+
+      ctx.globalAlpha = 0.25;
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#ffffff';
+      ctx.beginPath();
+      for (let i = 0; i < CONNECTIONS.length; i++) {
+        const [a, b] = CONNECTIONS[i];
+        const p1 = kps[a],
+          p2 = kps[b];
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+      }
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      for (let i = 0; i < kps.length; i++) {
+        if (fingerTips.has(i)) continue;
+        const { x, y } = kps[i];
+        const r = 3;
+        ctx.moveTo(x + r, y);
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+      }
+      ctx.fill();
+
+      const tipColor = h === 0 ? '#00ffff' : '#ffff00';
+      ctx.fillStyle = tipColor;
+      ctx.beginPath();
+      for (let i = 0; i < kps.length; i++) {
+        if (!fingerTips.has(i)) continue;
+        const { x, y } = kps[i];
+        const r = 5;
+        ctx.moveTo(x + r, y);
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+      }
+      ctx.fill();
+    }
+
+    return true;
+  };
+
+    // one euro filter
+  class OneEuroFilter {
+    constructor({ minCutoff = 1.0, beta = 0.02, dCutoff = 1.0 } = {}) {
+      this.minCutoff = minCutoff;
+      this.beta = beta;
+      this.dCutoff = dCutoff;
+      this.xPrev = null;
+      this.dxPrev = 0;
+      this.tPrev = null;
+    }
+    static alpha(cutoff, dt) {
+      const tau = 1.0 / (2 * Math.PI * cutoff);
+      return 1.0 / (1.0 + tau / dt);
+    }
+    filter(x, timestamp) {
+      if (this.tPrev == null) {
+        this.tPrev = timestamp;
+        this.xPrev = x;
+        return x;
+      }
+      const dt = Math.max(1e-3, (timestamp - this.tPrev) / 1000.0);
+      const dx = (x - this.xPrev) / dt;
+      const ad = OneEuroFilter.alpha(this.dCutoff, dt);
+      const dxHat = ad * dx + (1 - ad) * this.dxPrev;
+      const cutoff = this.minCutoff + this.beta * Math.abs(dxHat);
+      const a = OneEuroFilter.alpha(cutoff, dt);
+      const xHat = a * x + (1 - a) * this.xPrev;
+      this.tPrev = timestamp;
+      this.xPrev = xHat;
+      this.dxPrev = dxHat;
+      return xHat;
+    }
+  }
+
+  function ensureFilterPairs(filterArrRef, length, params) {
+    if (!filterArrRef.current || filterArrRef.current.length !== length) {
+      const arr = new Array(length);
+      for (let i = 0; i < length; i++) {
+        arr[i] = [new OneEuroFilter(params), new OneEuroFilter(params)];
+      }
+      filterArrRef.current = arr;
+    }
+  }
+
+  function ensureHandFilters(handFiltersRef, handIndex, length, params) {
+    if (!handFiltersRef.current[handIndex] || handFiltersRef.current[handIndex].length !== length) {
+      const arr = new Array(length);
+      for (let i = 0; i < length; i++) {
+        arr[i] = [new OneEuroFilter(params), new OneEuroFilter(params)];
+      }
+      handFiltersRef.current[handIndex] = arr;
+    }
+  }
+
+  const euroParams = { minCutoff: 1.2, beta: 0.02, dCutoff: 1.5 };
+
   const detect = async () => {
-    if (!videoRef.current || videoRef.current.readyState !== 4 || !canvasRef.current) {
+    if (
+      !videoRef.current ||
+      videoRef.current.readyState !== 4 ||
+      !canvasRef.current
+    ) {
       animationRef.current = requestAnimationFrame(detect);
       return;
     }
 
     const video = videoRef.current;
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    if (!ctxRef.current) {
+      ctxRef.current = canvas.getContext('2d', { alpha: false, desynchronized: true });
+    }
+    const ctx = ctxRef.current;
 
-    if (canvas.width !== video.videoWidth || canvas.height !== video.videoHeight) {
+    // draw video into the small processing canvas
+    const pctx = procCtxRef.current;
+    const pcvs = procCanvasRef.current;
+    if (pctx && pcvs) {
+      pctx.drawImage(video, 0, 0, toProcSize.w, toProcSize.h);
+    }
+
+    if (
+      canvas.width !== video.videoWidth ||
+      canvas.height !== video.videoHeight
+    ) {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
     }
 
     try {
-      // Clear canvas
-      ctx.fillStyle = '#1a1a1a';
+      const now = performance.now();
+      // clear canvas
+      ctx.fillStyle = '#0a0a0a';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       let faceDetected = false;
       let handsDetected = false;
       let handCount = 0;
-
-      // Face detection
+      
       if (faceModel && (trackingMode === 'face' || trackingMode === 'both')) {
-        const facePredictions = await faceModel.estimateFaces(video, {
-          flipHorizontal: true,
-        });
-
+        const facePredictions = await faceModel.estimateFaces(pcvs, { flipHorizontal: true });
         if (facePredictions && facePredictions.length > 0) {
-          faceDetected = drawFaceDots(facePredictions, ctx);
+          const raw = facePredictions[0].keypoints;
+
+          ensureFilterPairs(faceFiltersRef, raw.length, euroParams);
+
+          const filtered = raw.map((pt, i) => {
+            const [fx, fy] = faceFiltersRef.current[i];
+            return {
+              x: fx.filter(pt.x, performance.now()),
+              y: fy.filter(pt.y, performance.now()),
+              z: pt.z,
+              score: pt.score,
+            };
+          });
+
+          faceDetected = drawFaceDots([{ keypoints: filtered }], ctx);
         }
       }
 
-      // Hand detection
+
       if (handModel && (trackingMode === 'hands' || trackingMode === 'both')) {
-        const handPredictions = await handModel.estimateHands(video, {
-          flipHorizontal: true,
-        });
-
+        const handPredictions = await handModel.estimateHands(pcvs, { flipHorizontal: true });
         if (handPredictions && handPredictions.length > 0) {
-          handsDetected = drawHandDots(handPredictions, ctx);
-          handCount = handPredictions.length;
+          const smoothed = handPredictions.map((hand, idx) => {
+            ensureHandFilters(handFiltersRef, idx, hand.keypoints.length, euroParams);
+            const filtered = hand.keypoints.map((pt, i) => {
+              const [fx, fy] = handFiltersRef.current[idx][i];
+              return {
+                x: fx.filter(pt.x, now),
+                y: fy.filter(pt.y, now),
+                z: pt.z,
+                score: pt.score,
+              };
+            });
+            return { ...hand, keypoints: filtered };
+          });
+
+          handsDetected = drawHandDots(smoothed, ctx);
+          handCount = smoothed.length;
         }
       }
 
-      // Draw 3D shape if both hands are pinching
-      if (cubeStateRef.current.visible && cubeStateRef.current.hand1 && cubeStateRef.current.hand2) {
-        draw3DShape(ctx, cubeStateRef.current.hand1, cubeStateRef.current.hand2);
-      }
 
-      // Update status
-      if (trackingMode === 'face') {
-        setStatus(faceDetected ? '✓ Tracking face (468 points)' : '✗ No face detected');
-      } else if (trackingMode === 'hands') {
-        const cubeStatus = cubeStateRef.current.visible ? ' | 🔮 Shape Active' : '';
-        setStatus(handsDetected ? `✓ Tracking ${handCount} hand(s)${cubeStatus}` : '✗ No hands detected');
-      } else if (trackingMode === 'both') {
-        const faceStatus = faceDetected ? 'Face ✓' : 'Face ✗';
-        const handStatus = handsDetected ? `Hands ✓ (${handCount})` : 'Hands ✗';
-        const cubeStatus = cubeStateRef.current.visible ? ' | 🔮' : '';
-        setStatus(`${faceStatus} | ${handStatus}${cubeStatus}`);
-      }
 
-      // Show message if nothing detected
-      if (!faceDetected && !handsDetected) {
-        ctx.fillStyle = '#ff4444';
-        ctx.font = '24px Arial';
-        ctx.textAlign = 'center';
-        
-        if (trackingMode === 'face') {
-          ctx.fillText('Show your face to camera', canvas.width / 2, canvas.height / 2);
-        } else if (trackingMode === 'hands') {
-          ctx.fillText('Show your hands to camera', canvas.width / 2, canvas.height / 2);
-          ctx.font = '16px Arial';
-          ctx.fillText('Pinch both hands to create a 3D shape!', canvas.width / 2, canvas.height / 2 + 30);
-          ctx.fillText('Move hands apart to increase detail', canvas.width / 2, canvas.height / 2 + 50);
-        } else {
-          ctx.fillText('Show face and/or hands to camera', canvas.width / 2, canvas.height / 2);
-        }
-      }
-
-      // Calculate FPS
+      // calc fps
       fpsRef.current.frames++;
-      const now = performance.now();
       if (now >= fpsRef.current.lastTime + 1000) {
-        setFps(Math.round(fpsRef.current.frames * 1000 / (now - fpsRef.current.lastTime)));
+        setFps(
+          Math.round(
+            (fpsRef.current.frames * 1000) / (now - fpsRef.current.lastTime)
+          )
+        );
         fpsRef.current.frames = 0;
         fpsRef.current.lastTime = now;
       }
-
     } catch (err) {
       console.error('Detection error:', err);
       setStatus('Detection error');
@@ -533,17 +595,15 @@ const FaceHandTracker = () => {
       await startCamera();
       await loadModels();
     };
-    
+
     init();
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-      if (videoRef.current?.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach(track => track.stop());
-      }
-    };
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      videoRef.current?.srcObject?.getTracks()?.forEach(t => t.stop());
+      faceModel?.dispose?.();
+      handModel?.dispose?.();
+    };    
   }, []);
 
   useEffect(() => {
@@ -554,123 +614,67 @@ const FaceHandTracker = () => {
   }, [faceModel, handModel, isLoading, trackingMode]);
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      backgroundColor: '#0a0a0a',
-      padding: '20px',
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      
-      
-      {/* Status Bar */}
-      <div style={{ 
-        marginBottom: '20px',
-        padding: '16px 32px',
-        backgroundColor: '#1a1a1a',
-        borderRadius: '12px',
-        border: `2px solid ${status.includes('✓') ? '#4CAF50' : status.includes('✗') ? '#ff4444' : '#888'}`,
+    <div
+      style={{
         display: 'flex',
-        gap: '30px',
+        flexDirection: 'column',
         alignItems: 'center',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
-      }}>
-        <div style={{ 
-          color: status.includes('✓') ? '#4CAF50' : status.includes('✗') ? '#ff4444' : '#888',
-          fontWeight: 'bold',
-          fontSize: '16px'
-        }}>
-          {status}
-        </div>
-        <div style={{ 
-          color: '#888', 
-          fontSize: '14px',
-          borderLeft: '1px solid #333',
-          paddingLeft: '30px'
-        }}>
-          {fps} FPS
-        </div>
-        <div style={{ 
-          color: '#888', 
-          fontSize: '14px',
-          borderLeft: '1px solid #333',
-          paddingLeft: '30px'
-        }}>
-          Backend: {tf.getBackend ? tf.getBackend() : 'loading'}
-        </div>
+        justifyContent: 'center',
+        minHeight: '100vh',
+
+        padding: '20px',
+        fontFamily: 'Geo-Regular, sans-serif',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          top: '10px',
+          right: '10px',
+          color: '#ffffff30',
+          fontSize: '6px',
+        }}
+      >
+        {fps} FPS
       </div>
 
       {/* Mode Selector */}
-      <div style={{
-        marginBottom: '20px',
-        display: 'flex',
-        gap: '10px',
-        backgroundColor: '#1a1a1a',
-        padding: '8px',
-        borderRadius: '8px'
-      }}>
-        {['face', 'hands', 'both'].map(mode => (
+      <div
+        style={{
+          marginBottom: '20px',
+          display: 'flex',
+          gap: '10px',
+          backgroundColor: '#ffffff0',
+          padding: '8px',
+          borderRadius: '8px',
+        }}
+      >
+        {['face', 'hands', 'both'].map((mode) => (
           <button
             key={mode}
             onClick={() => setTrackingMode(mode)}
             disabled={isLoading}
             style={{
-              padding: '10px 20px',
-              backgroundColor: trackingMode === mode ? '#4CAF50' : '#333',
+              position: 'relative',
+              padding: '8px 16px',
+              backgroundColor: '#ffffff12',
               color: '#fff',
               border: 'none',
-              borderRadius: '6px',
+              borderRadius: '0px',
               cursor: isLoading ? 'not-allowed' : 'pointer',
-              fontSize: '14px',
-              fontWeight: '500',
               transition: 'all 0.2s',
-              opacity: isLoading ? 0.5 : 1
+              top: '10px',
+              gap: '50px',
+
+              fontSize: '12px',
+              fontWeight: '500',
+            
             }}
           >
             {mode.charAt(0).toUpperCase() + mode.slice(1)}
           </button>
         ))}
       </div>
-
-      {/* Loading State */}
-      {isLoading && (
-        <div style={{ 
-          color: '#ffffff', 
-          marginBottom: '20px',
-          fontSize: '16px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px'
-        }}>
-          <div style={{
-            width: '20px',
-            height: '20px',
-            border: '3px solid #333',
-            borderTop: '3px solid #4CAF50',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite'
-          }} />
-          Loading models... This may take 20-30 seconds
-        </div>
-      )}
-
-      {/* Error State */}
-      {error && (
-        <div style={{ 
-          color: '#ff4444', 
-          marginBottom: '20px',
-          padding: '16px',
-          border: '2px solid #ff4444',
-          borderRadius: '8px',
-          backgroundColor: '#1a0a0a',
-          maxWidth: '500px'
-        }}>
-          <strong>Error:</strong> {error}
-        </div>
-      )}
 
       {/* Hidden Video Element */}
       <video
@@ -680,54 +684,15 @@ const FaceHandTracker = () => {
         muted
         style={{ display: 'none' }}
       />
-      
+
       {/* Canvas for Drawing */}
       <canvas
         ref={canvasRef}
         style={{
-          maxWidth: '90vw',
-          maxHeight: '70vh',
-          border: '2px solid #333',
-          borderRadius: '12px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.5)'
+          maxWidth: '100vw',
+          maxHeight: '100vh',
         }}
       />
-
-      {/* Info Panel */}
-      <div style={{ 
-        color: '#888', 
-        marginTop: '30px',
-        textAlign: 'center',
-        fontSize: '14px',
-        maxWidth: '600px',
-        lineHeight: '1.6'
-      }}>
-        <div style={{ 
-          backgroundColor: '#1a1a1a',
-          padding: '20px',
-          borderRadius: '12px',
-          marginBottom: '15px',
-          border: '2px solid #333'
-        }}>
-          <strong style={{ color: '#00ff88', fontSize: '16px' }}>🔮 How to use:</strong>
-          <div style={{ fontSize: '13px', marginTop: '10px', color: '#aaa' }}>
-            1. Show both hands to the camera
-            <br />
-            2. Make a pinch gesture with <strong>both hands</strong> (thumb + index finger)
-            <br />
-            3. A low-poly 3D shape will appear!
-            <br />
-            4. <strong>Move your hands apart</strong> to increase detail and poly count
-            <br />
-            5. Watch it morph from 20 faces → 1280+ faces
-            <br />
-            <span style={{ color: '#ff6464' }}>Red = Low poly</span> • <span style={{ color: '#64c8ff' }}>Blue = High poly</span>
-          </div>
-        </div>
-        <p style={{ fontSize: '12px', color: '#555' }}>
-          Using MediaPipe Hands with WebGL backend
-        </p>
-      </div>
 
       {/* CSS Animation */}
       <style>{`
