@@ -32,8 +32,11 @@ const FaceHandTracker = () => {
   const [fps, setFps] = useState(0);
   const [status, setStatus] = useState('Initializing...');
   const [trackingMode, setTrackingMode] = useState('face');
+  const [symmetryMode, setSymmetryMode] = useState('off'); // 'off', 'horizontal', 'vertical', 'both', 'kaleidoscope'
 
   const fpsRef = useRef({ frames: 0, lastTime: performance.now() });
+  const tempCanvasRef = useRef(null); // Temporary canvas for symmetry effects
+  const tempCtxRef = useRef(null);
 
   const loadModels = async () => {
     try {
@@ -164,6 +167,74 @@ const FaceHandTracker = () => {
 
   const FINGERTIPS = new Set([4,8,12,16,20]);
   
+  // Apply symmetry effects to the canvas
+  const applySymmetry = (sourceCanvas, targetCtx, targetCanvas) => {
+    if (symmetryMode === 'off') {
+      // Just draw normally
+      targetCtx.drawImage(sourceCanvas, 0, 0);
+      return;
+    }
+
+    const width = targetCanvas.width;
+    const height = targetCanvas.height;
+    const centerX = width / 2;
+    const centerY = height / 2;
+
+    // Clear target canvas
+    targetCtx.fillStyle = '#0a0a0a';
+    targetCtx.fillRect(0, 0, width, height);
+
+    if (symmetryMode === 'horizontal') {
+      // Draw original
+      targetCtx.drawImage(sourceCanvas, 0, 0);
+      // Draw horizontally flipped
+      targetCtx.save();
+      targetCtx.scale(-1, 1);
+      targetCtx.drawImage(sourceCanvas, -width, 0);
+      targetCtx.restore();
+    } else if (symmetryMode === 'vertical') {
+      // Draw original
+      targetCtx.drawImage(sourceCanvas, 0, 0);
+      // Draw vertically flipped
+      targetCtx.save();
+      targetCtx.scale(1, -1);
+      targetCtx.drawImage(sourceCanvas, 0, -height);
+      targetCtx.restore();
+    } else if (symmetryMode === 'both') {
+      // Draw original
+      targetCtx.drawImage(sourceCanvas, 0, 0);
+      // Draw horizontally flipped
+      targetCtx.save();
+      targetCtx.scale(-1, 1);
+      targetCtx.drawImage(sourceCanvas, -width, 0);
+      targetCtx.restore();
+      // Draw vertically flipped
+      targetCtx.save();
+      targetCtx.scale(1, -1);
+      targetCtx.drawImage(sourceCanvas, 0, -height);
+      targetCtx.restore();
+      // Draw both flipped (diagonal)
+      targetCtx.save();
+      targetCtx.scale(-1, -1);
+      targetCtx.drawImage(sourceCanvas, -width, -height);
+      targetCtx.restore();
+    } else if (symmetryMode === 'kaleidoscope') {
+      // Draw 8-way rotational symmetry (kaleidoscope effect)
+      const segments = 8;
+      const angleStep = (Math.PI * 2) / segments;
+      
+      for (let i = 0; i < segments; i++) {
+        targetCtx.save();
+        targetCtx.translate(centerX, centerY);
+        targetCtx.rotate(angleStep * i);
+        // Draw with reduced opacity for overlapping segments
+        targetCtx.globalAlpha = 0.5;
+        targetCtx.drawImage(sourceCanvas, -centerX, -centerY);
+        targetCtx.restore();
+      }
+      targetCtx.globalAlpha = 1;
+    }
+  };
 
   const drawHandDots = (predictions, ctx) => {
     if (!predictions || predictions.length === 0) return false;
@@ -293,6 +364,18 @@ const FaceHandTracker = () => {
     }
     const ctx = ctxRef.current;
 
+    // Create temporary canvas for symmetry effects
+    if (!tempCanvasRef.current || 
+        tempCanvasRef.current.width !== canvas.width || 
+        tempCanvasRef.current.height !== canvas.height) {
+      tempCanvasRef.current = document.createElement('canvas');
+      tempCanvasRef.current.width = canvas.width;
+      tempCanvasRef.current.height = canvas.height;
+      tempCtxRef.current = tempCanvasRef.current.getContext('2d', { alpha: false });
+    }
+    const tempCtx = tempCtxRef.current;
+    const tempCanvas = tempCanvasRef.current;
+
     // draw video into the small processing canvas
     const pctx = procCtxRef.current;
     const pcvs = procCanvasRef.current;
@@ -310,9 +393,14 @@ const FaceHandTracker = () => {
 
     try {
       const now = performance.now();
-      // clear canvas
-      ctx.fillStyle = '#0a0a0a';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw to temporary canvas first (for symmetry effects)
+      const drawCtx = symmetryMode !== 'off' ? tempCtx : ctx;
+      const drawCanvas = symmetryMode !== 'off' ? tempCanvas : canvas;
+      
+      // Clear drawing canvas
+      drawCtx.fillStyle = '#0a0a0a';
+      drawCtx.fillRect(0, 0, drawCanvas.width, drawCanvas.height);
 
       let faceDetected = false;
       let handsDetected = false;
@@ -335,7 +423,7 @@ const FaceHandTracker = () => {
             };
           });
 
-          faceDetected = drawFaceDots([{ keypoints: filtered }], ctx);
+          faceDetected = drawFaceDots([{ keypoints: filtered }], drawCtx);
         }
       }
 
@@ -357,12 +445,17 @@ const FaceHandTracker = () => {
             return { ...hand, keypoints: filtered };
           });
 
-          handsDetected = drawHandDots(smoothed, ctx);
+          handsDetected = drawHandDots(smoothed, drawCtx);
           handCount = smoothed.length;
         }
       }
 
 
+
+      // Apply symmetry effects if enabled
+      if (symmetryMode !== 'off') {
+        applySymmetry(tempCanvas, ctx, canvas);
+      }
 
       // calc fps
       fpsRef.current.frames++;
@@ -404,7 +497,7 @@ const FaceHandTracker = () => {
       console.log('Starting detection...');
       detect();
     }
-  }, [faceModel, handModel, isLoading, trackingMode]);
+  }, [faceModel, handModel, isLoading, trackingMode, symmetryMode]);
 
   return (
     <div
@@ -440,6 +533,7 @@ const FaceHandTracker = () => {
           backgroundColor: '#ffffff0',
           padding: '8px',
           borderRadius: '8px',
+          flexWrap: 'wrap',
         }}
       >
         {['face', 'hands', 'both'].map((mode) => (
@@ -448,23 +542,56 @@ const FaceHandTracker = () => {
             onClick={() => setTrackingMode(mode)}
             disabled={isLoading}
             style={{
-              position: 'relative',
               padding: '8px 16px',
-              backgroundColor: '#ffffff12',
+              backgroundColor: trackingMode === mode ? '#ffffff30' : '#ffffff12',
               color: '#fff',
-              border: 'none',
-              borderRadius: '0px',
+              border: trackingMode === mode ? '1px solid #ffffff50' : '1px solid transparent',
+              borderRadius: '4px',
               cursor: isLoading ? 'not-allowed' : 'pointer',
-              transition: 'all 0.2s',
-              top: '10px',
-              gap: '50px',
-
               fontSize: '12px',
               fontWeight: '500',
               transition: 'all 0.2s',
             }}
           >
             {mode.charAt(0).toUpperCase() + mode.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      {/* Symmetry Mode Selector */}
+      <div
+        style={{
+          marginBottom: '20px',
+          display: 'flex',
+          gap: '10px',
+          backgroundColor: '#ffffff0',
+          padding: '8px',
+          borderRadius: '8px',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+        }}
+      >
+        <span style={{ color: '#fff', fontSize: '12px', marginRight: '10px' }}>
+          Symmetry:
+        </span>
+        {['off', 'horizontal', 'vertical', 'both', 'kaleidoscope'].map((mode) => (
+          <button
+            key={mode}
+            onClick={() => setSymmetryMode(mode)}
+            disabled={isLoading}
+            style={{
+              padding: '6px 12px',
+              backgroundColor: symmetryMode === mode ? '#ffffff30' : '#ffffff12',
+              color: '#fff',
+              border: symmetryMode === mode ? '1px solid #ffffff50' : '1px solid transparent',
+              borderRadius: '4px',
+              cursor: isLoading ? 'not-allowed' : 'pointer',
+              fontSize: '11px',
+              textTransform: 'capitalize',
+              transition: 'all 0.2s',
+            }}
+          >
+            {mode}
           </button>
         ))}
       </div>
