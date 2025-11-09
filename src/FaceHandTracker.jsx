@@ -119,6 +119,13 @@ const FaceHandTracker = () => {
       [0, -1, t], [0, 1, t], [0, -1, -t], [0, 1, -t],
       [t, 0, -1], [t, 0, 1], [-t, 0, -1], [-t, 0, 1]
     ];
+
+    // let vertices = [
+    //   [1, 1, 1],
+    //   [-1, -1, 1],
+    //   [-1, 1, -1],
+    //   [1, -1, -1]
+    // ];
     
     let faces = [
       [0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11],
@@ -127,6 +134,13 @@ const FaceHandTracker = () => {
       [4, 9, 5], [2, 4, 11], [6, 2, 10], [8, 6, 7], [9, 8, 1]
     ];
     
+    // let faces = [
+    //   [0, 1, 2],
+    //   [0, 2, 3],
+    //   [0, 3, 1],
+    //   [1, 3, 2]
+    // ];
+
     // Subdivide faces
     for (let sub = 0; sub < subdivisions; sub++) {
       const newFaces = [];
@@ -198,14 +212,14 @@ const FaceHandTracker = () => {
     );
     
     // Map distance to subdivision level (limited to 2 max for performance)
-    const minDistance = 10;
-    const maxDistance = 400;
+    const minDistance = 50;
+    const maxDistance = 1000;
     const normalizedDist = Math.max(0, Math.min(1, (distance - minDistance) / (maxDistance - minDistance)));
     
 
-    const subdivisions = normalizedDist + 1;
+    const subdivisions = Math.floor(normalizedDist * 4);
     
-    const size = Math.max(20, distance * 0.3);
+    const size = Math.max(50, distance * 0.3);
     const rotation = performance.now() * 0.002;
     
     // Generate sphere with appropriate poly count
@@ -250,7 +264,7 @@ const FaceHandTracker = () => {
     const highPolyColor = { r: 155, g: 100, b: 255 };
     
     // Draw faces
-    ctx.globalAlpha = 1;
+    ctx.globalAlpha = 0.1;
     faceDepths.forEach(({ face, avgZ }) => {
       ctx.beginPath();
       ctx.moveTo(vertices2D[face[0]].x, vertices2D[face[0]].y);
@@ -265,16 +279,16 @@ const FaceHandTracker = () => {
       const b = Math.floor(lowPolyColor.b + (highPolyColor.b - lowPolyColor.b) * colorMix);
       
       // Lighting based on z-depth
-      const brightness = 0.8 + (avgZ + 1) * 0.25;
+      const brightness = 0.2 + (avgZ + 1) * 0.25;
       ctx.fillStyle = `rgb(${r * brightness}, ${g * brightness}, ${b * brightness})`;
       ctx.fill();
     });
     
     // Draw wireframe only for low poly
-    if (subdivisions <= 1) {
+    if (subdivisions <= 15) {
       ctx.globalAlpha = 0.8;
       ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 0.1;
+      ctx.lineWidth = 0.2;
       
       faceDepths.forEach(({ face }) => {
         ctx.beginPath();
@@ -334,8 +348,8 @@ const FaceHandTracker = () => {
       }
 
       // Draw connections
-      ctx.globalAlpha = isPinching ? 0.5 : 0.3;
-      ctx.lineWidth = isPinching ? 3 : 2;
+      ctx.globalAlpha = isPinching ? 0.8 : 0.3;
+      ctx.lineWidth = isPinching ? 4 : 2;
       // ctx.strokeStyle = isPinching ? '#00ff00' : '#ffffff';
       ctx.beginPath();
       // for (let i = 0; i < CONNECTIONS.length; i++) {
