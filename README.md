@@ -2,11 +2,11 @@
 
 > **A Vanilla Vite starter kit with opinionated linting, formatting, and streamlined developer workflows.**
 
-[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/) 
-[![Prettier](https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=white)](https://prettier.io/) 
-[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/) 
-[![Stylelint](https://img.shields.io/badge/Stylelint-263238?logo=stylelint&logoColor=white)](https://stylelint.io/) 
-[![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/) 
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Prettier](https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=white)](https://prettier.io/)
+[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/)
+[![Stylelint](https://img.shields.io/badge/Stylelint-263238?logo=stylelint&logoColor=white)](https://stylelint.io/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Concurrently](https://img.shields.io/badge/Concurrently-FF5733?logo=javascript&logoColor=white)](https://www.npmjs.com/package/concurrently)
 
 ## Dependencies
