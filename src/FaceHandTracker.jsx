@@ -8,6 +8,11 @@ const FaceHandTracker = () => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
+  const procCanvasRef = useRef(null);
+  const procCtxRef = useRef(null);
+
+  const toProcSize = { w: 320, h: 180 }; // processing resolution
+
   
   const [faceModel, setFaceModel] = useState(null);
   const [handModel, setHandModel] = useState(null);
@@ -36,7 +41,7 @@ const FaceHandTracker = () => {
           runtime: 'mediapipe',
           solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh',
           maxFaces: 1,
-          refineLandmarks: true,
+          refineLandmarks: false,
         }
       );
       console.log('Face mesh loaded!');
@@ -49,7 +54,7 @@ const FaceHandTracker = () => {
         {
           runtime: 'mediapipe',
           solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands',
-          modelType: 'full',
+          modelType: 'lite',
           maxHands: 2,
         }
       );
@@ -72,8 +77,9 @@ const FaceHandTracker = () => {
       
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { 
-          width: { ideal: 1280 },
-          height: { ideal: 720 },
+          width: { ideal: 640 },
+          height: { ideal: 360 },
+          frameRate: { ideal: 30, max: 30 },
           facingMode: 'user'
         },
         audio: false,
@@ -92,6 +98,16 @@ const FaceHandTracker = () => {
       }
       
       setStatus('Camera ready!');
+
+      // Create smaller processing canvas for inference
+      if (!procCanvasRef.current) {
+        const c = document.createElement('canvas');
+        c.width = toProcSize.w;
+        c.height = toProcSize.h;
+        procCanvasRef.current = c;
+        procCtxRef.current = c.getContext("2d");
+      }
+
     } catch (err) {
       console.error('Camera error:', err);
       setError(`Camera access denied: ${err.message}`);
@@ -99,124 +115,107 @@ const FaceHandTracker = () => {
   };
 
   const drawFaceDots = (predictions, ctx) => {
-    if (!predictions || predictions.length === 0) {
-      return false;
-    }
-
+    if (!predictions || predictions.length === 0) return false;
+  
+    // scale from processing canvas → display canvas
+    const scale = (p) => ({
+      x: (p.x * ctx.canvas.width) / toProcSize.w,
+      y: (p.y * ctx.canvas.height) / toProcSize.h,
+      z: p.z
+    });
+  
     const keypoints = predictions[0].keypoints;
-    const canvas = ctx.canvas;
-    // const centerX = canvas.width / 2;
-    // const centerY = canvas.height / 2;
-    
-    keypoints.forEach((point, index) => {
-      const { x, y, z } = point;
-      
+  
+    // Batch draw for performance
+    ctx.globalAlpha = 0.9;
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+  
+    for (let i = 0; i < keypoints.length; i++) {
+      const { x, y, z } = scale(keypoints[i]);
       const depth = z ? Math.max(0, Math.min(1, (-z + 50) / 100)) : 0.5;
-      const dotSize = 1.1 + depth * 0.2;
-      const opacity = 0.7 + depth * 0.3;
-      
-      let color = '#ffffff';
-      
-      // // Lips
-      // if ((index >= 61 && index <= 80) || (index >= 308 && index <= 324) || (index >= 402 && index <= 415)) {
-      //   color = '#ff6b6b';
-      // } 
-      // // Eyes
-      // else if ([33, 133, 159, 145, 263, 362, 386, 374].includes(index)) {
-      //   color = '#4ecdc4';
-      // } 
-      // // Eyebrows
-      // else if ([46, 52, 65, 55, 276, 282, 295, 285].includes(index)) {
-      //   color = '#ffe66d';
-      // }
-      
-      ctx.globalAlpha = opacity;
-      ctx.fillStyle = color;
-      // ctx.shadowBlur = 3;
-      ctx.shadowColor = color;
-      ctx.beginPath();
-      ctx.arc(x, y, dotSize, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    
-    // ctx.shadowBlur = 0;
-    ctx.globalAlpha = 1;
-    
-    return true;
-  };
-
-  const drawHandDots = (predictions, ctx) => {
-    if (!predictions || predictions.length === 0) {
-      return false;
+      const r = 1.1 + depth * 0.2;
+  
+      ctx.moveTo(x + r, y);
+      ctx.arc(x, y, r, 0, Math.PI * 2);
     }
-
-    predictions.forEach((hand, handIndex) => {
-      const keypoints = hand.keypoints;
-      
-      // Define hand colors (different for left/right)
-      // const handColor = handIndex === 0 ? '#00ff88' : '#ff00ff';
-      const handColor = handIndex === 0 ? '#ffffff' : '#ffffff';
-      const fingerTipColor = handIndex === 0 ? '#00ffff' : '#ffff00';
-      
-      // Finger tip indices: Thumb=4, Index=8, Middle=12, Ring=16, Pinky=20
-      const fingerTips = [4, 8, 12, 16, 20];
-      
-      // Draw connections (skeleton)
-      const connections = [
-        // Thumb
-        [5, 1], [1, 2], [2, 3], [3, 4],
-        // Index finger
-        [0, 5], [5, 6], [6, 7], [7, 8],
-        // Middle finger
-        [0, 9], [9, 10], [10, 11], [11, 12],
-        // Ring finger
-        [0, 13], [13, 14], [14, 15], [15, 16],
-        // Pinky
-        [0, 17], [17, 18], [18, 19], [19, 20],
-        // Palm
-        [5, 9], [9, 13], [13, 17], [0, 5], [0, 17]
-      ];
-      
-      // Draw skeleton lines
-      ctx.strokeStyle = handColor;
-      ctx.lineWidth = 2;
-      ctx.globalAlpha = 0.2;
-      
-      connections.forEach(([i, j]) => {
-        const point1 = keypoints[i];
-        const point2 = keypoints[j];
-        
-        ctx.beginPath();
-        ctx.moveTo(point1.x, point1.y);
-        ctx.lineTo(point2.x, point2.y);
-        ctx.stroke();
-      });
-      
-      ctx.globalAlpha = 1;
-      
-      // Draw keypoints
-      keypoints.forEach((point, index) => {
-        const { x, y } = point;
-        
-        // Finger tips are larger and different color
-        const isFingerTip = fingerTips.includes(index);
-        const dotSize = isFingerTip ? 5 : 3;
-        const color = isFingerTip ? fingerTipColor : handColor;
-        // const color = handColor;
-        
-        ctx.fillStyle = color;
-        // ctx.shadowBlur = isFingerTip ? 5 : 3;
-        // ctx.shadowColor = color;
-        ctx.beginPath();
-        ctx.arc(x, y, dotSize, 0, Math.PI * 2);
-        ctx.fill();
-      });
-      
-      // ctx.shadowBlur = 8;
-    });
-    
+  
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  
     return true;
   };
+  
+  const drawHandDots = (predictions, ctx) => {
+    if (!predictions || predictions.length === 0) return false;
+  
+    // scale from processing canvas → display canvas
+    const scale = (p) => ({
+      x: (p.x * ctx.canvas.width) / toProcSize.w,
+      y: (p.y * ctx.canvas.height) / toProcSize.h,
+      z: p.z
+    });
+  
+    // Hoist these outside the component for best perf if you like
+    const CONNECTIONS = [
+      [5,1],[1,2],[2,3],[3,4],
+      [0,5],[5,6],[6,7],[7,8],
+      [0,9],[9,10],[10,11],[11,12],
+      [0,13],[13,14],[14,15],[15,16],
+      [0,17],[17,18],[18,19],[19,20],
+      [5,9],[9,13],[13,17],[0,5],[0,17]
+    ];
+    const FINGERTIPS = new Set([4,8,12,16,20]);
+  
+    for (let h = 0; h < predictions.length; h++) {
+      // scale once
+      const kps = predictions[h].keypoints.map(scale);
+  
+      // --- skeleton: single stroke ---
+      ctx.globalAlpha = 0.25;
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#ffffff';
+      ctx.beginPath();
+      for (let i = 0; i < CONNECTIONS.length; i++) {
+        const [a, b] = CONNECTIONS[i];
+        const p1 = kps[a], p2 = kps[b];
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+      }
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+  
+      // --- points: normals in white (one fill) ---
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      for (let i = 0; i < kps.length; i++) {
+        if (FINGERTIPS.has(i)) continue; // skip tips for this pass
+        const { x, y } = kps[i];
+        const r = 3;
+        ctx.moveTo(x + r, y);
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+      }
+      ctx.fill();
+  
+      // --- fingertips: colored (one fill) ---
+      // If you want different colors per hand, switch on `h`
+      const tipColor = h === 0 ? '#00ffff' : '#ffff00';
+      ctx.fillStyle = tipColor;
+      ctx.beginPath();
+      for (let i = 0; i < kps.length; i++) {
+        if (!FINGERTIPS.has(i)) continue;
+        const { x, y } = kps[i];
+        const r = 5;
+        ctx.moveTo(x + r, y);
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+      }
+      ctx.fill();
+    }
+  
+    return true;
+  };
+  
+  
 
   const detect = async () => {
     if (!videoRef.current || videoRef.current.readyState !== 4 || !canvasRef.current) {
@@ -226,7 +225,15 @@ const FaceHandTracker = () => {
 
     const video = videoRef.current;
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false, desynchronized: true });
+
+    // draw video into the small processing canvas
+    const pctx = procCtxRef.current;
+    const pcvs = procCanvasRef.current;
+    if (pctx && pcvs) {
+      pctx.drawImage(video, 0, 0, toProcSize.w, toProcSize.h);
+}
+
 
     if (canvas.width !== video.videoWidth || canvas.height !== video.videoHeight) {
       canvas.width = video.videoWidth;
@@ -244,9 +251,10 @@ const FaceHandTracker = () => {
 
       // Face detection
       if (faceModel && (trackingMode === 'face' || trackingMode === 'both')) {
-        const facePredictions = await faceModel.estimateFaces(video, {
+        const facePredictions = await faceModel.estimateFaces(pcvs, {
           flipHorizontal: true,
         });
+        
 
         if (facePredictions && facePredictions.length > 0) {
           faceDetected = drawFaceDots(facePredictions, ctx);
@@ -255,9 +263,10 @@ const FaceHandTracker = () => {
 
       // Hand detection
       if (handModel && (trackingMode === 'hands' || trackingMode === 'both')) {
-        const handPredictions = await handModel.estimateHands(video, {
+        const handPredictions = await handModel.estimateHands(pcvs, {
           flipHorizontal: true,
         });
+        
 
         if (handPredictions && handPredictions.length > 0) {
           handsDetected = drawHandDots(handPredictions, ctx);
@@ -265,31 +274,31 @@ const FaceHandTracker = () => {
         }
       }
 
-      // Update status
-      if (trackingMode === 'face') {
-        setStatus(faceDetected ? '✓ Tracking face (468 points)' : '✗ No face detected');
-      } else if (trackingMode === 'hands') {
-        setStatus(handsDetected ? `✓ Tracking ${handCount} hand(s) (21 points each)` : '✗ No hands detected');
-      } else if (trackingMode === 'both') {
-        const faceStatus = faceDetected ? 'Face ✓' : 'Face ✗';
-        const handStatus = handsDetected ? `Hands ✓ (${handCount})` : 'Hands ✗';
-        setStatus(`${faceStatus} | ${handStatus}`);
-      }
+      // // Update status
+      // if (trackingMode === 'face') {
+      //   setStatus(faceDetected ? '✓ Tracking face (468 points)' : '✗ No face detected');
+      // } else if (trackingMode === 'hands') {
+      //   setStatus(handsDetected ? `✓ Tracking ${handCount} hand(s) (21 points each)` : '✗ No hands detected');
+      // } else if (trackingMode === 'both') {
+      //   const faceStatus = faceDetected ? 'Face ✓' : 'Face ✗';
+      //   const handStatus = handsDetected ? `Hands ✓ (${handCount})` : 'Hands ✗';
+      //   setStatus(`${faceStatus} | ${handStatus}`);
+      // }
 
       // Show message if nothing detected
-      if (!faceDetected && !handsDetected) {
-        ctx.fillStyle = '#ff4444';
-        ctx.font = '24px Arial';
-        ctx.textAlign = 'center';
+      // if (!faceDetected && !handsDetected) {
+      //   ctx.fillStyle = '#ff4444';
+      //   ctx.font = '24px Arial';
+      //   ctx.textAlign = 'center';
         
-        if (trackingMode === 'face') {
-          ctx.fillText('Show your face to camera', canvas.width / 2, canvas.height / 2);
-        } else if (trackingMode === 'hands') {
-          ctx.fillText('Show your hands to camera', canvas.width / 2, canvas.height / 2);
-        } else {
-          ctx.fillText('Show face and/or hands to camera', canvas.width / 2, canvas.height / 2);
-        }
-      }
+      //   if (trackingMode === 'face') {
+      //     ctx.fillText('Show your face to camera', canvas.width / 2, canvas.height / 2);
+      //   } else if (trackingMode === 'hands') {
+      //     ctx.fillText('Show your hands to camera', canvas.width / 2, canvas.height / 2);
+      //   } else {
+      //     ctx.fillText('Show face and/or hands to camera', canvas.width / 2, canvas.height / 2);
+      //   }
+      // }
 
       // Calculate FPS
       fpsRef.current.frames++;
@@ -364,7 +373,6 @@ const FaceHandTracker = () => {
         display: 'flex',
         gap: '30px',
         alignItems: 'center',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
       }}>
         <div style={{ 
           color: status.includes('✓') ? '#4CAF50' : status.includes('✗') ? '#ff4444' : '#888',
@@ -477,7 +485,6 @@ const FaceHandTracker = () => {
           maxHeight: '70vh',
           border: '2px solid #333',
           borderRadius: '12px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.5)'
         }}
       />
 
